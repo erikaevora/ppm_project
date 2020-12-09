@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteAppointmentDoc">
+    <left>
+    <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
+        <children>
+            <VBox alignment="CENTER" prefHeight="577.0" prefWidth="200.0">
+                <children>
+                    <ScrollPane prefHeight="560.0" prefWidth="200.0">
+                        <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="200.0">
+                                <children>
+                                    <Label fx:id="home_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="21.0" onMouseClicked="#onHomeClicked" text="Home">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Label>
+                                    <Label fx:id="exams_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="51.0" onMouseClicked="#onExamsClicked" text="Exams">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor></Label>
+                                    <Label fx:id="appointments_button" accessibleRole="BUTTON" disable="true" layoutX="9.0" layoutY="81.0" onMouseClicked="#onAppClicked" text="Appointments">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Label>
+                                    <Label fx:id="history_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="135.0" onMouseClicked="#onHistoryClicked" text="History">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Label>
+                                    <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="8.0" layoutY="109.0" onMouseClicked="#onPrescriptionsClicked" text="Prescriptions">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Label>
+                                    <Label fx:id="profile_button" accessibleRole="BUTTON" layoutX="11.0" layoutY="160.0" onMouseClicked="#onProfileClicked" text="My Profile">
+                                        <font>
+                                            <Font size="14.0" />
+                                        </font>
+                                        <cursor>
+                                            <Cursor fx:constant="HAND" />
+                                        </cursor>
+                                    </Label>
+                                </children>
+                                <effect>
+                                    <Bloom />
+                                </effect>
+                            </AnchorPane>
+                        </content>
+                    </ScrollPane>
+                </children></VBox>
+        </children></AnchorPane>
+    </left>
+    <top>
+    <AnchorPane prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #1d87a0;" BorderPane.alignment="CENTER">
+        <children>
+            <HBox prefHeight="0.0" prefWidth="0.0">
+                <children>
+                    <ImageView fitHeight="45.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@healthapp_symbol.jpg" />
+                        </image>
+                    </ImageView>
+                </children>
+            </HBox>
+            <Label fx:id="logout_button" accessibleRole="BUTTON" layoutX="838.0" layoutY="13.0" onMouseClicked="#onLogoutClicked" text="Log out" textFill="WHITE" underline="true">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Label>
+            <ImageView fitHeight="31.0" fitWidth="170.0" layoutX="366.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@myhealthapp_name.PNG" />
+                </image>
+            </ImageView>
+        </children></AnchorPane>
+    </top>
+    <center>
+    <AnchorPane accessibleRole="LIST_VIEW" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
+        <children>
+            <Label layoutX="43.0" layoutY="40.0" text="+ Delete Appointment +" textFill="#1e1e1e">
+                <font>
+                    <Font name="System Bold" size="28.0" />
+                </font>
+            </Label>
+            <Separator layoutX="14.0" layoutY="87.0" prefHeight="17.0" prefWidth="608.0" />
+            <ComboBox fx:id="appointments_combo" layoutX="25.0" layoutY="134.0" onAction="#onComboAppointmentAction" prefHeight="25.0" prefWidth="582.0" promptText="Select an Appointment to Delete" />
+            <Button fx:id="confirm_appointment_delete_button" disable="true" layoutX="534.0" layoutY="503.0" mnemonicParsing="false" onAction="#onConfirmAppointmentDeleteClicked" text="Confirm" />
+            <Button fx:id="cancel_button" layoutX="463.0" layoutY="503.0" mnemonicParsing="false" onAction="#onCancelClicked" text="Cancel" />
+            <CheckBox fx:id="confirm_delete_appointment_checkbox" layoutX="364.0" layoutY="470.0" mnemonicParsing="false" onAction="#onCheckboxDeleteAppointmentClicked" text="Yes, I'm sure I want to delete this Appointment" visible="false" />
+        </children>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor></AnchorPane>
+    </center>
+</BorderPane>

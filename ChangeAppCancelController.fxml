@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeAppCancelController">
+    <children>
+        <Label layoutX="122.0" layoutY="59.0" text="Your Appointments:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="new_date_picker" layoutX="252.0" layoutY="103.0" onAction="#onDatePicked" prefHeight="25.0" prefWidth="185.0" />
+        <Label layoutX="167.0" layoutY="103.0" text="New Date:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="change_button" layoutX="169.0" layoutY="283.0" mnemonicParsing="false" onAction="#onChangeClicked" prefHeight="30.0" prefWidth="268.0" style="-fx-background-color: #9ACB7C;" text="Change Date" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="cancel_button" layoutX="207.0" layoutY="331.0" mnemonicParsing="false" onAction="#onCancelClicked" prefHeight="30.0" prefWidth="192.0" style="-fx-background-color: #4C96C7;" text="Cancel Appointment" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+        <Button fx:id="back_button" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#onGoBackClicked" style="-fx-background-color: #1b1b1b;" text="Go back" textFill="WHITE" />
+        <ComboBox fx:id="app_date_box" layoutX="252.0" layoutY="57.0" prefHeight="25.0" prefWidth="185.0" />
+        <ChoiceBox fx:id="minute_box" layoutX="252.0" layoutY="200.0" prefHeight="25.0" prefWidth="185.0" />
+        <TextField fx:id="hour_text" layoutX="252.0" layoutY="150.0" prefHeight="25.0" prefWidth="185.0" />
+        <Label layoutX="167.0" layoutY="153.0" text="Hour:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="167.0" layoutY="203.0" text="Minute:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="258.0" prefHeight="17.0" prefWidth="320.0" textFill="#e80b0b" />
+        <Label fx:id="success_label" alignment="CENTER" layoutX="143.0" layoutY="250.0" prefHeight="17.0" prefWidth="328.0" textFill="#9acb7c" />
+    </children>
+</AnchorPane>

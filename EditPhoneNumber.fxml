@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditPhoneNumber">
+    <left>
+        <AnchorPane prefHeight="380.0" prefWidth="0.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER" />
+    </left>
+   <center>
+        <AnchorPane accessibleRole="LIST_VIEW" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="250.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
+            <children>
+            <Label layoutX="25.0" layoutY="51.0" text="Please, enter your new phone number:" />
+            <TextArea fx:id="phone_text" layoutX="25.0" layoutY="87.0" prefHeight="32.0" prefWidth="200.0" />
+            <Button fx:id="confirm_phone_button" layoutX="98.0" layoutY="148.0" mnemonicParsing="false" onAction="#onConfirmChangeClicked" text="Confirm" />
+            <Label fx:id="warning_text" layoutX="35.0" layoutY="203.0" text="Please, insert a valid phone number" textFill="#f20303" visible="false" />
+            </children>
+            <cursor>
+                <Cursor fx:constant="DISAPPEAR" />
+            </cursor></AnchorPane>
+   </center>
+</BorderPane>
