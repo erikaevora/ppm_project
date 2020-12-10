@@ -42,7 +42,7 @@
          </font>
       </Label>
       <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="258.0" prefHeight="17.0" prefWidth="268.0" textFill="#e80b0b" />
-      <Label fx:id="success_label" layoutX="169.0" layoutY="250.0" prefHeight="17.0" prefWidth="268.0" textFill="#9acb7c" />
+      <Label fx:id="success_label" alignment="CENTER" layoutX="169.0" layoutY="250.0" prefHeight="17.0" prefWidth="268.0" textFill="#9acb7c" />
       <Label fx:id="date_warning" layoutX="289.0" layoutY="128.0" prefHeight="17.0" prefWidth="168.0" text="Select a valid date" textFill="#d70e0e" visible="false" />
    </children>
 </AnchorPane>

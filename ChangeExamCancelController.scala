@@ -86,7 +86,7 @@ class ChangeExamCancelController extends Initializable{
     if (e != null && new_date_picker != null && hour.length >0 && minute_box != null && new_date_picker.getValue != null) {
       if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
       if (hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
-        error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+        error_label.setText("The date and time you chose are unavailable.")
         error_label.setVisible(true)
         return
       }
@@ -97,7 +97,7 @@ class ChangeExamCancelController extends Initializable{
         if (!Calendar.isFirst(dateHour, FxApp.today)) {
 
           if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) {
-            error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            error_label.setText("The date and time you chose are unavailable.")
             error_label.setVisible(true)
           }
           else {
@@ -118,7 +118,7 @@ class ChangeExamCancelController extends Initializable{
         } else {
 
           if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) {
-            error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            error_label.setText("The date and time you chose are unavailable.")
             error_label.setVisible(true)
           }
           else {

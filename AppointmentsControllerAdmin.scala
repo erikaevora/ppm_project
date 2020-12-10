@@ -31,7 +31,7 @@ class AppointmentsControllerAdmin extends Initializable{
   private var text_area: TextArea = _
 
   def onLogoutClicked: Unit = {
-    val fxmlLoader = new FXMLLoader(getClass.getResource("LoginController.fxml"))
+    val fxmlLoader = new FXMLLoader(getClass.getResource("LoginControllerAdmin.fxml"))
     val mainViewRoot: Parent = fxmlLoader.load()
 
     logout_button.getScene().setRoot(mainViewRoot)
@@ -86,7 +86,7 @@ class AppointmentsControllerAdmin extends Initializable{
       text_area.appendText("Medical facility: 1\n")
       text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
       text_area.appendText("Specialty: " + a._3._5.getOrElse("--")+ "\n")
-      text_area.appendText("Practitioner: " + a._1._1 + "\n")
+      text_area.appendText("Practitioner: " + a._3._1 + "\n")
       text_area.appendText("Cost: " + a._4 + "\n \n")
 
 
@@ -119,7 +119,7 @@ class AppointmentsControllerAdmin extends Initializable{
       text_area.appendText("Medical facility: 1\n")
       text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
       text_area.appendText("Specialty: " + a._3._5.getOrElse("--") + "\n")
-      text_area.appendText("Practitioner: " + a._1._1 + "\n")
+      text_area.appendText("Practitioner: " + a._3._1 + "\n")
       text_area.appendText("Cost: " + a._4 + "\n \n")
 
 

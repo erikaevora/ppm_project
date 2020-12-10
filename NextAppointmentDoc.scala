@@ -21,7 +21,7 @@ class NextAppointmentDoc extends Initializable {
       val ex = exl.head
       appointment_text.appendText("Next Appointment: " + "\n")
       appointment_text.appendText("Date and Time: " + Calendar.toString(ex._2) + "\n")
-      appointment_text.appendText("Patient: " + ex._1._1 + " - " + ex._1._2 + "\n")
+      appointment_text.appendText("Patient: " + ex._1._1 + " - " + Calendar.toString(ex._1._2) + "\n")
     }
     if(exl2.length > 0) {
       val ex2 = exl2.head

@@ -90,8 +90,9 @@ class ChangeAppCancelController extends Initializable{
         return
       }
       if (hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
-        error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+        error_label.setText("The date and time you chose are unavailable.")
         error_label.setVisible(true)
+        error_label.setMinWidth(250)
         return
       }
       val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour.toInt, min).get
@@ -102,8 +103,9 @@ class ChangeAppCancelController extends Initializable{
       if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
 
         if (!FxApp.mf1.wtl.availableSlot(dateHour, a._3)) {
-          error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          error_label.setText("The date and time you chose are unavailable.")
           error_label.setVisible(true)
+          error_label.setMinWidth(250)
         }
         else {
           val new_mf = FxApp.mf1.changeAppointmentDateWL(a, dateHour)
@@ -124,8 +126,9 @@ class ChangeAppCancelController extends Initializable{
       } else {
 
         if (!FxApp.mf2.wtl.availableSlot(dateHour, a._3)) {
-          error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          error_label.setText("The date and time you chose are unavailable.")
           error_label.setVisible(true)
+          error_label.setMinWidth(250)
         }
         else {
           val new_mf = FxApp.mf2.changeAppointmentDateWL(a, dateHour)

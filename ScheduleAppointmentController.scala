@@ -166,6 +166,8 @@ class ScheduleAppointmentController extends Initializable{
 
   def onDatePicked: Unit = {
     date = date_picker.getValue.toString.split("-")  //year-month-day
+    val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+    if (Calendar.isFirst(verData, FxApp.today)) insert_valid_date.setVisible(true) else insert_valid_date.setVisible(false)
   }
 
   def onSubmit: Unit = {
