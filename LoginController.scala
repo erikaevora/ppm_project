@@ -7,9 +7,6 @@ import javafx.stage.{Modality, Stage}
 
 class LoginController {
 
-  // RGB: ( 76, 150, 199) - #4C96C7
-  // RGB: (154, 203, 124) - #9ACB7C
-
   @FXML
   private var nif: TextField = _
 

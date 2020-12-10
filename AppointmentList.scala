@@ -8,7 +8,6 @@ class AppointmentList(val medicalFacility: String, val appointments: Appointment
   def specialityAppointmentList(s: Specialty): Appointments = AppointmentList.specialityAppointmentList(this, s)
   def organizeByName(): Appointments = AppointmentList.organizeByName(this)
   def findAppointment(nif: NIF, dh: DateTime, sp: Specialty): Option[Appointment] = AppointmentList.findAppointment(this, nif, dh, sp)
-  //  def deleteAppointment(nif: NIF, dt: DateTime, sp: Specialty): AppointmentList = AppointmentList.deleteAppointment(this, nif, dt, sp)
   def filterAppointmentsDoc(doc: Doctor): Appointments = AppointmentList.filterAppointmentsDoc(this, doc)
   def filterAppointmentsDocDate(doc: Doctor, dt: DateTime): Appointments = AppointmentList.filterAppointmentsDocDate(this, doc, dt)
   def deleteAppointment(ap: Appointment): Option[AppointmentList] = AppointmentList.deleteAppointment(this, ap)
@@ -19,20 +18,7 @@ class AppointmentList(val medicalFacility: String, val appointments: Appointment
   def findAppointmentCombo(cli: Name, doc: Name, dt: DateTime): Option[Appointment] = AppointmentList.findAppointmentCombo(this, cli, doc, dt)
 }
 
-//trait AppointmentListType {
-//  type Appointment = (Client, DateTime, Doctor, Bill)
-//  type s = List[Appointment]
-//
-//  def specialityAppointmentList(al: AppointmentList, s: Specialty): Appointments
-//  def addAppointment(al: AppointmentList, ap: Appointment): AppointmentList
-//  def organizeList(al: AppointmentList): AppointmentList
-//  def findAppointment(al: AppointmentList, nif: NIF, dh: DateTime, sp: Specialty): Option[Appointment]
-//  def organizeByName(al: AppointmentList): Appointments
-//  def deleteAppointment(al: AppointmentList, nif: NIF, dt: DateTime, sp: Specialty): AppointmentList
-//  def deleteAppointment(al: AppointmentList, ap: Appointment): AppointmentList
-//}
-
-object AppointmentList /*extends AppointmentListType*/ {
+object AppointmentList {
 
   type DateTime = Calendar
   type Specialty = SpecialtyENUM
@@ -85,10 +71,8 @@ object AppointmentList /*extends AppointmentListType*/ {
     al.appointments.find(x => x._1._1.equals(cli) && x._3._1.equals(doc) && x._2.equals(dt))
   }
 
-  // confirmar NEW APPOINTMENT LIST ???
   //organizar a waiting list em função da data/hora
   def organizeList(al: AppointmentList): AppointmentList = {
-    //    al.appointments.sortBy(_._2.getTime)
     val aptms = al.appointments.sortWith((a, b) => Calendar.isFirst(a._2, b._2))
     new AppointmentList(al.medicalFacility, aptms)
   }
@@ -116,25 +100,6 @@ object AppointmentList /*extends AppointmentListType*/ {
     }
   }
 
-  // apagar Appointment
-  // confirmar NEW APPOINTMENT LIST ???
-  //  def deleteAppointment(al: AppointmentList, nif: NIF, dt: DateTime, sp: Specialty): AppointmentList = {
-  //    @tailrec
-  //    def loop(aptms: Appointments, nif: NIF, dt: DateTime, sp: Specialty, resp: Appointments): Appointments = {
-  //      aptms match {
-  //        case Nil => resp
-  //        case x :: tail => {
-  //          if (x._1._3 == nif && x._2 == dt && x._3._5 == sp) loop(tail, nif, dt, sp, resp) else loop(tail, nif, dt, sp, x :: resp)
-  //        }
-  //      }
-  //    }
-  ////    loop(al.appointments, nif, dt, sp, List())
-  //    val aptms = loop(al.appointments, nif, dt, sp, List())
-  //    new AppointmentList(al.medicalFacility, aptms)
-  //  }
-
-
-  // confirmar NEW APPOINTMENT LIST ???
   def deleteAppointment(al: AppointmentList, ap: Appointment): Option[AppointmentList] = {
     if(al.appointments.contains(ap)) {
       @tailrec
@@ -157,5 +122,4 @@ object AppointmentList /*extends AppointmentListType*/ {
   def getAllAppointmentsDoc(al: AppointmentList, doc: Doctor): Appointments = {
     al.appointments filter (x => x._3.equals(doc))
   }
-
 }

@@ -81,9 +81,6 @@ class ExamsController extends Initializable{
 
   def onChangeCancelClicked: Unit = {
     val secondStage: Stage = new Stage()
-    /*secondStage.setHeight(100)
-    secondStage.setWidth(100)
-    secondStage.centerOnScreen()*/
     secondStage.initModality(Modality.APPLICATION_MODAL)
     secondStage.initOwner(change_cancel_button.getScene().getWindow)
     val fxmlLoader = new FXMLLoader(getClass.getResource("ChangeExamCancelController.fxml"))

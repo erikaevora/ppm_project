@@ -22,7 +22,6 @@ class DeleteAppointmentDoc extends Initializable {
   private var appointments_button: Label = _
 
   @FXML
-//  private var appointments_combo: ComboBox[Appointment] = _
   private var appointments_combo: ComboBox[String] = _
 
   @FXML

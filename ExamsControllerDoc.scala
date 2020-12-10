@@ -138,5 +138,4 @@ class ExamsControllerDoc extends Initializable{
 
     delete_exam_doc_button.getScene().setRoot(mainViewRoot)
   }
-
 }

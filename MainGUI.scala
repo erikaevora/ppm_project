@@ -12,7 +12,6 @@ class MainGUI extends Application {
   @Override
   def start(primaryStage: Stage): Unit = {
     val root: Parent = FXMLLoader.load(getClass.getResource("LoginController.fxml"))
-//    primaryStage.initStyle(StageStyle.UNIFIED)
     primaryStage.setTitle("MyHealth App")
     primaryStage.setResizable(false)
 
@@ -31,7 +30,6 @@ class MainGUI extends Application {
 
 object FxApp{
   val today = Calendar.getCurrentTime()
-//  val today = Calendar.setDateTime(25,12,2020,9,MinuteENUM.Zero).get
 
   var user: Person = ("", Calendar.getCurrentTime(), "", None, None, None, "", true)
 
@@ -73,8 +71,8 @@ object FxApp{
 
 
   def saveProgress(): Unit = {
-//      Try(IO.writeToFile(mf1.nome, mf1)).getOrElse(println("Erro a gravar ficheiro"))
-//      Try(IO.writeToFile(mf2.nome, mf2)).getOrElse(println("Erro a gravar ficheiro"))
+      Try(IO.writeToFile(mf1.nome, mf1)).getOrElse(println("Code: 2635"))
+      Try(IO.writeToFile(mf2.nome, mf2)).getOrElse(println("Code: 2635"))
   }
 
   def main(args: Array[String]): Unit = {

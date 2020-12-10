@@ -76,75 +76,39 @@ class ExamsControllerAdmin extends Initializable{
 
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = { //receipts
-
-
     val fexl1 = FxApp.mf1.fexl
     val pel1 = FxApp.mf1.pexl
-
-
-
     fexl1.exams.foreach(a => {
-
       text_area.appendText("Medical facility: 1\n")
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._3 + "\n")
       text_area.appendText("Practitioner: " + a._1._5 + "\n")
       text_area.appendText("Cost: " + a._5 + "\n \n")
-
-
-
-
     })
-
-
     pel1.exams.foreach(a => {
-
       text_area.appendText("Medical facility: 1\n")
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._2._5.getOrElse("--") + "\n")
       text_area.appendText("Practitioner: " + a._2._1 + "\n")
       text_area.appendText("Cost: " + a._5.getOrElse(0) + "\n")
       text_area.appendText("Debt: " + a._7 + "\n \n")
-
-
-
-
     })
-
-
-
     val fexl2 = FxApp.mf2.fexl
     val pel2 = FxApp.mf2.pexl
-
     fexl2.exams.foreach(a => {
-
       text_area.appendText("Medical facility: 2\n")
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._3 + "\n")
       text_area.appendText("Practitioner: " + a._1._5 + "\n")
       text_area.appendText("Cost: " + a._5 + "\n \n")
-
-
-
     })
-
     pel2.exams.foreach(a => {
-
       text_area.appendText("Medical facility: 2\n")
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._2._5.getOrElse("--") + "\n")
       text_area.appendText("Practitioner: " + a._2._1 + "\n")
       text_area.appendText("Cost: " + a._5.getOrElse(0) + "\n")
       text_area.appendText("Debt: " + a._7 + "\n \n")
-
-
-
     })
   }
-
-
-
-
-
-
 }

@@ -169,7 +169,6 @@ object PopulateFacility {
     fexl = fexl.addExam(exam10)
 
     pexl = pexl.addExam(exam1, today).get
-//    pexl = pexl.addExam(exam2, today).get
 
     var mf1: MedicalFacility = new MedicalFacility(name1, wtl, pal, docl, patl, prescl, fexl, pexl)
 

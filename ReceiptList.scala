@@ -41,20 +41,6 @@ object ReceiptList {
     loop(al.appointments, List())
   }
 
-//  def getReceiptsPAL(pal: PastAppointmentsList): Receipts = {
-//    @tailrec
-//    def loop(ap: Appointments, resp: Receipts): Receipts = {
-//      ap match {
-//        case Nil => resp
-//        case x :: tail => {
-//          val rcp = (x._1, x._3, true, false, false, x._2, x._4)
-//          loop(tail, rcp :: resp)
-//        }
-//      }
-//    }
-//    loop(pal.appointments, List())
-//  }
-
   def getReceiptsEL(el: ExamList): Receipts = {
     @tailrec
     def loop(exs: Exams, resp: Receipts): Receipts = {
@@ -68,20 +54,6 @@ object ReceiptList {
     }
     loop(el.exams, List())
   }
-
-//  def getReceiptsFEL(fel: FutureExamList): Receipts = {
-//    @tailrec
-//    def loop(exs: Exams, resp: Receipts): Receipts = {
-//      exs match {
-//        case Nil => resp
-//        case x::tail => {
-//          val rcp = (x._1, x._2, false, true, false, x._4, x._5)
-//          loop(tail, rcp :: resp)
-//        }
-//      }
-//    }
-//    loop(fel.exams, List())
-//  }
 
   def getReceiptsPL(pl: PrescriptionList): Receipts = {
     @tailrec

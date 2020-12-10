@@ -103,5 +103,4 @@ class HomeController {
 
     schedule_app_button.getScene().setRoot(mainViewRoot)
   }
-
 }
