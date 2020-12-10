@@ -5,6 +5,7 @@ import PersonList.Person
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Parent
 import javafx.scene.control.{Button, ChoiceBox, ComboBox, DatePicker, Label, TextField}
+import javafx.scene.layout.Region
 
 class ScheduleExamController extends Initializable{
 
@@ -162,10 +163,12 @@ class ScheduleExamController extends Initializable{
 
   def onDatePicked: Unit = {
     date = date_picker.getValue.toString.split("-")  //year-month-day
+    val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+    if (Calendar.isFirst(verData, FxApp.today)) valid_date_label.setVisible(true) else valid_date_label.setVisible(false)
   }
 
   def onSubmit: Unit = {
-    if(hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null) {
+    if(hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null || hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
       warning_label_final.setVisible(true)
     }
     else {
@@ -183,7 +186,12 @@ class ScheduleExamController extends Initializable{
 
         if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
 
-          if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) {
+            valid_date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            valid_date_label.setMinWidth(Region.USE_PREF_SIZE)
+            valid_date_label.setVisible(true)
+            return
+          }
           else {
             val new_mf = FxApp.mf1.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
             FxApp.mf1 = new_mf
@@ -191,7 +199,9 @@ class ScheduleExamController extends Initializable{
 
         } else {
 
-          if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) {
+            date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          }
           else {
             val new_mf = FxApp.mf2.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
             FxApp.mf2 = new_mf

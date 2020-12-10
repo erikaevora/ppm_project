@@ -112,7 +112,7 @@
             <ComboBox fx:id="combo_box" layoutX="43.0" layoutY="134.0" onAction="#onComboAction" prefHeight="25.0" prefWidth="551.0" />
             <Button fx:id="cancel_button" layoutX="449.0" layoutY="527.0" mnemonicParsing="false" onAction="#onCancelClicked" text="Cancel" />
             <Label fx:id="warning_label" layoutX="43.0" layoutY="519.0" prefHeight="17.0" prefWidth="311.0" text="The prescription must contain a description" textFill="#f50a0a" visible="false" />
-            <CheckBox fx:id="check_box" layoutX="301.0" layoutY="491.0" mnemonicParsing="false" onAction="#onCheckSelected" text="Are you sure you want to delete this prescription?" visible="false" />
+            <CheckBox fx:id="check_box" layoutX="301.0" layoutY="491.0" mnemonicParsing="false" onAction="#onCheckSelected" text="Are you sure you want to alter this prescription?" visible="false" />
             <TextArea fx:id="text_area" editable="false" layoutX="43.0" layoutY="229.0" prefHeight="238.0" prefWidth="551.0" />
             <Label layoutX="43.0" layoutY="187.0" text="Enter description" />
             </children></AnchorPane>

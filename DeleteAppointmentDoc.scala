@@ -37,8 +37,8 @@ class DeleteAppointmentDoc extends Initializable {
   private var ex: Appointment = (FxApp.user, Calendar.getCurrentTime(), FxApp.user, None, false)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    val aps1 = FxApp.mf1.wtl.filterAppointmentsDoc(FxApp.user)
-    val aps2 = FxApp.mf2.wtl.filterAppointmentsDoc(FxApp.user)
+    val aps1 = FxApp.mf1.wtl.filterAppointmentsDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
+    val aps2 = FxApp.mf2.wtl.filterAppointmentsDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
     if(aps1.nonEmpty) {
       aps1.foreach(a => {
         appointments_combo.getItems().add(appointmentToString(a))

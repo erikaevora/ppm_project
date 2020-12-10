@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeExamCancelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeExamCancelController">
    <children>
       <Label layoutX="167.0" layoutY="59.0" text="Your Exams:">
          <font>
@@ -43,5 +43,6 @@
       </Label>
       <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="258.0" prefHeight="17.0" prefWidth="268.0" textFill="#e80b0b" />
       <Label fx:id="success_label" layoutX="169.0" layoutY="250.0" prefHeight="17.0" prefWidth="268.0" textFill="#9acb7c" />
+      <Label fx:id="date_warning" layoutX="289.0" layoutY="128.0" prefHeight="17.0" prefWidth="168.0" text="Select a valid date" textFill="#d70e0e" visible="false" />
    </children>
 </AnchorPane>

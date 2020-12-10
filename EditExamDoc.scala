@@ -35,8 +35,8 @@ class EditExamDoc extends Initializable {
   @FXML
   private var cancel_button: Button = _
 
-  private val x1 = FxApp.mf1.pexl.filterExamDoc(FxApp.user)
-  private val x2 = FxApp.mf2.pexl.filterExamDoc(FxApp.user)
+  private val x1 = FxApp.mf1.pexl.filterExamDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._4, b._4))
+  private val x2 = FxApp.mf2.pexl.filterExamDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._4, b._4))
   private var ex: Exam = (FxApp.user, FxApp.user, SpecialtyENUM.Dermatology, Calendar.getCurrentTime(), Some(0), None, false)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {

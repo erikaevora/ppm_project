@@ -133,7 +133,7 @@
                 <ChoiceBox fx:id="minute_picker" layoutX="278.0" layoutY="422.0" prefWidth="158.0" />
                 <Label layoutX="277.0" layoutY="395.0" text="Minute" />
             <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="482.0" prefHeight="17.0" prefWidth="260.0" text="Tip: submit all necessary information" textFill="#ee0808" visible="false" />
-            <Label fx:id="insert_valid_date" layoutX="70.0" layoutY="370.0" prefHeight="17.0" prefWidth="104.0" text="Insert a valid date" textFill="#eb0f0f" visible="false" />
+            <Label fx:id="insert_valid_date" layoutX="43.0" layoutY="370.0" prefHeight="17.0" prefWidth="321.0" text="Insert a valid date" textFill="#eb0f0f" visible="false" />
             </children></AnchorPane>
     </center>
 </BorderPane>

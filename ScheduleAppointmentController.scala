@@ -5,6 +5,7 @@ import PersonList.Person
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Parent
 import javafx.scene.control.{Button, ChoiceBox, ComboBox, DatePicker, Label, TextField}
+import javafx.scene.layout.Region
 
 class ScheduleAppointmentController extends Initializable{
 
@@ -168,7 +169,7 @@ class ScheduleAppointmentController extends Initializable{
   }
 
   def onSubmit: Unit = {
-    if (hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null) {
+    if (hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null || hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
       error_label.setVisible(true)
     }
     else {
@@ -187,7 +188,10 @@ class ScheduleAppointmentController extends Initializable{
 
           if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
 
-            if (!FxApp.mf1.wtl.availableSlot(dateHour, pract)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            if (!FxApp.mf1.wtl.availableSlot(dateHour, pract)) {
+              date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+              return
+            }
             else {
               val new_mf = FxApp.mf1.addAppointmentWL(FxApp.user, dateHour, pract, Some(0), false).get
               FxApp.mf1 = new_mf
@@ -195,7 +199,12 @@ class ScheduleAppointmentController extends Initializable{
 
           } else {
 
-            if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) {
+              insert_valid_date.setText("The date and time you chose are unavailable, please pick a different one.")
+              insert_valid_date.setMinWidth(Region.USE_PREF_SIZE)
+              insert_valid_date.setVisible(true)
+              return
+            }
             else {
               val new_mf = FxApp.mf2.addAppointmentWL((FxApp.user, dateHour, pract, Some(0), false)).get
               FxApp.mf2 = new_mf

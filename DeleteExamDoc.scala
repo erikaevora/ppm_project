@@ -34,8 +34,8 @@ class DeleteExamDoc extends Initializable {
 
   private var ex: Exam = (FxApp.user, FxApp.user, SpecialtyENUM.Dermatology, Calendar.getCurrentTime(), Some(0), None, false)
 
-  private val x1 = FxApp.mf1.fexl.filterExamDoc(FxApp.user)
-  private val x2 = FxApp.mf2.fexl.filterExamDoc(FxApp.user)
+  private val x1 = FxApp.mf1.fexl.filterExamDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._4, b._4))
+  private val x2 = FxApp.mf2.fexl.filterExamDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._4, b._4))
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
     x1.foreach(a => {

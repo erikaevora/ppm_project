@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeAppCancelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeAppCancelController">
     <children>
         <Label layoutX="122.0" layoutY="59.0" text="Your Appointments:">
             <font>
@@ -43,5 +43,6 @@
         </Label>
         <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="147.0" layoutY="258.0" prefHeight="17.0" prefWidth="320.0" textFill="#e80b0b" />
         <Label fx:id="success_label" alignment="CENTER" layoutX="143.0" layoutY="250.0" prefHeight="17.0" prefWidth="328.0" textFill="#9acb7c" />
+        <Label fx:id="valid_date_label" layoutX="290.0" layoutY="130.0" prefHeight="17.0" prefWidth="156.0" text="Insert a valid date" textFill="#dd0d0d" visible="false" />
     </children>
 </AnchorPane>

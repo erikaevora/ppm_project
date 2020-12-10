@@ -39,6 +39,9 @@ class ChangeExamCancelController extends Initializable{
   @FXML
   private var success_label: Label = _
 
+  @FXML
+  private var date_warning: Label = _
+
   private var date: Array[String] = Array("0", "0", "0")
   private var min: MinuteENUM.Value = MinuteENUM.Zero
   private val x1 = FxApp.mf1.patl.searchPerson(FxApp.user._3)
@@ -68,6 +71,8 @@ class ChangeExamCancelController extends Initializable{
 
   def onDatePicked: Unit = {
     date = new_date_picker.getValue.toString.split("-")  //year-month-day
+    val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+    if (Calendar.isFirst(verData, FxApp.today)) date_warning.setVisible(true) else date_warning.setVisible(false)
   }
 
   def onChangeClicked: Unit = {
@@ -78,48 +83,56 @@ class ChangeExamCancelController extends Initializable{
     val minute = minute_box.getValue
     val e = exam_date_box.getValue
 
-    if (e != null && new_date_picker != null && hour.length >0 && minute_box != null) {
+    if (e != null && new_date_picker != null && hour.length >0 && minute_box != null && new_date_picker.getValue != null) {
       if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
+      if (hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
+        error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+        error_label.setVisible(true)
+        return
+      }
       val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour.toInt, min).get
 
       if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
 
-        if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) {
-          error_label.setText("The date and time you chose are unavailable, please pick a different one.")
-          error_label.setVisible(true)
-        }
-        else {
-          val new_mf = FxApp.mf1.changeExamDate(e, dateHour)
-          new_mf match {
-            case None => {
-              error_label.setText("Something went wrong, please try again later.")
-              error_label.setVisible(true)
-            }
-            case _ =>  {
-              FxApp.mf1 = new_mf.get
-              success_label.setText("The date of your exam was successfully changed.")
-              success_label.setVisible(true)
+        if (!Calendar.isFirst(dateHour, FxApp.today)) {
+
+          if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) {
+            error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            error_label.setVisible(true)
+          }
+          else {
+            val new_mf = FxApp.mf1.changeExamDate(e, dateHour)
+            new_mf match {
+              case None => {
+                error_label.setText("Select a Valid Date")
+                error_label.setVisible(true)
+              }
+              case _ => {
+                FxApp.mf1 = new_mf.get
+                success_label.setText("The date of your exam was successfully changed.")
+                success_label.setVisible(true)
+              }
             }
           }
-        }
 
-      } else {
+        } else {
 
-        if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) {
-          error_label.setText("The date and time you chose are unavailable, please pick a different one.")
-          error_label.setVisible(true)
-        }
-        else {
-          val new_mf = FxApp.mf2.changeExamDate(e, dateHour)
-          new_mf match {
-            case None => {
-              error_label.setText("Something went wrong, please try again later.")
-              error_label.setVisible(true)
-            }
-            case _ =>  {
-              FxApp.mf2 = new_mf.get
-              success_label.setText("The date of your exam was successfully changed.")
-              success_label.setVisible(true)
+          if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) {
+            error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            error_label.setVisible(true)
+          }
+          else {
+            val new_mf = FxApp.mf2.changeExamDate(e, dateHour)
+            new_mf match {
+              case None => {
+                error_label.setText("Something went wrong.")
+                error_label.setVisible(true)
+              }
+              case _ => {
+                FxApp.mf2 = new_mf.get
+                success_label.setText("The date of your exam was successfully changed.")
+                success_label.setVisible(true)
+              }
             }
           }
         }

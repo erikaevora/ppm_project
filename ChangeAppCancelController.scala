@@ -39,6 +39,9 @@ class ChangeAppCancelController extends Initializable{
   @FXML
   private var success_label: Label = _
 
+  @FXML
+  private var valid_date_label: Label = _
+
   private var date: Array[String] = Array("0", "0", "0")
   private var min: MinuteENUM.Value = MinuteENUM.Zero
   private val x1 = FxApp.mf1.patl.searchPerson(FxApp.user._3)
@@ -68,6 +71,8 @@ class ChangeAppCancelController extends Initializable{
 
   def onDatePicked: Unit = {
     date = new_date_picker.getValue.toString.split("-")  //year-month-day
+    val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+    if (Calendar.isFirst(verData, FxApp.today)) valid_date_label.setVisible(true) else valid_date_label.setVisible(false)
   }
 
   def onChangeClicked: Unit = {
@@ -80,8 +85,20 @@ class ChangeAppCancelController extends Initializable{
 
     if (a != null && new_date_picker != null && hour.length >0 && minute_box != null) {
       if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
+      if (new_date_picker.getValue == null) {
+        valid_date_label.setVisible(true)
+        return
+      }
+      if (hour_text.getText.toInt < 0 || hour_text.getText.toInt > 23) {
+        error_label.setText("The date and time you chose are unavailable, please pick a different one.")
+        error_label.setVisible(true)
+        return
+      }
       val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour.toInt, min).get
-
+      if (Calendar.isFirst(dateHour, FxApp.today)) {
+        valid_date_label.setVisible(true)
+        return
+      }
       if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
 
         if (!FxApp.mf1.wtl.availableSlot(dateHour, a._3)) {
@@ -92,13 +109,14 @@ class ChangeAppCancelController extends Initializable{
           val new_mf = FxApp.mf1.changeAppointmentDateWL(a, dateHour)
           new_mf match {
             case None => {
-              error_label.setText("Something went wrong, please try again later.")
+              error_label.setText("Something went wrong.")
               error_label.setVisible(true)
             }
-            case _ =>  {
+            case _ => {
               FxApp.mf1 = new_mf.get
               success_label.setText("The date of your appointment was successfully changed.")
               success_label.setVisible(true)
+              valid_date_label.setVisible(false)
             }
           }
         }
@@ -113,10 +131,10 @@ class ChangeAppCancelController extends Initializable{
           val new_mf = FxApp.mf2.changeAppointmentDateWL(a, dateHour)
           new_mf match {
             case None => {
-              error_label.setText("Something went wrong, please try again later.")
+              error_label.setText("Something went wrong.")
               error_label.setVisible(true)
             }
-            case _ =>  {
+            case _ => {
               FxApp.mf2 = new_mf.get
               success_label.setText("The date of your appointment was successfully changed.")
               success_label.setVisible(true)
