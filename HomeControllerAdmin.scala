@@ -22,12 +22,12 @@ class HomeControllerAdmin {
     @FXML
     private var receipts_button: Label = _
 
-    def onLogoutClicked: Unit = {
-      val fxmlLoader = new FXMLLoader(getClass.getResource("LoginControllerAdmin.fxml"))
-      val mainViewRoot: Parent = fxmlLoader.load()
+  def onLogoutClicked: Unit = {
+    val fxmlLoader = new FXMLLoader(getClass.getResource("LoginController.fxml"))
+    val mainViewRoot: Parent = fxmlLoader.load()
 
-      logout_button.getScene().setRoot(mainViewRoot)
-    }
+    logout_button.getScene().setRoot(mainViewRoot)
+  }
 
     def onHomeClicked: Unit = {
       val fxmlLoader = new FXMLLoader(getClass.getResource("HomeControllerAdmin.fxml"))

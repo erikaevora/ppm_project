@@ -32,7 +32,7 @@ class ExamsControllerAdmin extends Initializable{
   private var text_area: TextArea = _
 
   def onLogoutClicked: Unit = {
-    val fxmlLoader = new FXMLLoader(getClass.getResource("LoginControllerAdmin.fxml"))
+    val fxmlLoader = new FXMLLoader(getClass.getResource("LoginController.fxml"))
     val mainViewRoot: Parent = fxmlLoader.load()
 
     logout_button.getScene().setRoot(mainViewRoot)
