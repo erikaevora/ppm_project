@@ -83,7 +83,7 @@ class ExamsControllerAdmin extends Initializable{
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._3 + "\n")
       text_area.appendText("Practitioner: " + a._1._5 + "\n")
-      text_area.appendText("Cost: " + a._5 + "\n \n")
+      text_area.appendText("Cost: " + a._5.getOrElse(0) + "\n \n")
     })
     pel1.exams.foreach(a => {
       text_area.appendText("Medical facility: 1\n")
@@ -100,7 +100,7 @@ class ExamsControllerAdmin extends Initializable{
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Specialty: " + a._3 + "\n")
       text_area.appendText("Practitioner: " + a._1._5 + "\n")
-      text_area.appendText("Cost: " + a._5 + "\n \n")
+      text_area.appendText("Cost: " + a._5.getOrElse(0) + "\n \n")
     })
     pel2.exams.foreach(a => {
       text_area.appendText("Medical facility: 2\n")

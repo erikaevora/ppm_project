@@ -85,7 +85,7 @@ class ReceiptsControllerAdmin extends Initializable{
 
     pal1.appointments.foreach(a => {
 
-      text_area.appendText("Medical facility: 1")
+      text_area.appendText("Medical facility: 1\n")
       text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
       text_area.appendText("Type of procedure: Appointment\n")
       text_area.appendText("Specialty: " + a._3._5.getOrElse("--") + "\n")
@@ -101,7 +101,7 @@ class ReceiptsControllerAdmin extends Initializable{
 
     pel1.exams.foreach(a => {
 
-      text_area.appendText("Medical facility: 1")
+      text_area.appendText("Medical facility: 1\n")
 
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Type of procedure: Exam\n")
@@ -122,7 +122,7 @@ class ReceiptsControllerAdmin extends Initializable{
 
     pal2.appointments.foreach(a => {
 
-      text_area.appendText("Medical facility: 2")
+      text_area.appendText("Medical facility: 2\n")
       text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
       text_area.appendText("Type of procedure: Appointment\n")
       text_area.appendText("Specialty: " + a._3._5.getOrElse("--") + "\n")
@@ -136,7 +136,7 @@ class ReceiptsControllerAdmin extends Initializable{
 
     pel2.exams.foreach(a => {
 
-      text_area.appendText("Medical facility: 2")
+      text_area.appendText("Medical facility: 2\n")
       text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
       text_area.appendText("Type of procedure: Exam\n")
       text_area.appendText("Specialty: " + a._2._5.getOrElse("--") + "\n")
