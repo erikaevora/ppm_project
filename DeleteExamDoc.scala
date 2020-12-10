@@ -113,7 +113,7 @@ class DeleteExamDoc extends Initializable {
       case _ => ex = tmp.get
     }
 
-    confirm_exam_delete_button.setDisable(false)
+    confirm_delete_exam_checkbox.setVisible(true)
   }
 
   def stringToCal(str: String): Calendar = {

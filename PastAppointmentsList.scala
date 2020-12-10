@@ -6,10 +6,6 @@ case class PastAppointmentsList(override val medicalFacility: String, override v
 }
 
 object PastAppointmentsList {
-  def validateInsertion(ap: Appointment, today: Calendar): Boolean = {
-    if (!Calendar.isFirst(today, ap._2)) false else true
-  }
-
   def addAppointment(pal: PastAppointmentsList, ap: Appointment, today: Calendar): Option[PastAppointmentsList] = {
     if (validateInsertion(ap, today)) {
       Some(new PastAppointmentsList(pal.medicalFacility, pal.appointments :+ ap))
@@ -17,6 +13,10 @@ object PastAppointmentsList {
     else {
       None
     }
+  }
+
+  def validateInsertion(ap: Appointment, today: Calendar): Boolean = {
+    if (Calendar.isFirst(ap._2, today)) true else false
   }
 
   def toPastAppointmentList(al: AppointmentList): PastAppointmentsList = {

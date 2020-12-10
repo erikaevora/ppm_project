@@ -9,6 +9,7 @@ case class Calendar (day: Int, month: Int, year: Int, hour : Int, minute: Minute
   def setDateTime(day: Int, month: Int, year: Int, hour : Int, minute: MinuteENUM): Option[Calendar] = Calendar.setDateTime(day, month, year, hour, minute)
   def getCurrentTime(): Calendar = Calendar.getCurrentTime()
   def isFirst(cal1: Calendar, cal2: Calendar): Boolean = Calendar.isFirst(cal1, cal2)
+  def sameDay(dt1: Calendar, dt2: Calendar): Boolean = Calendar.sameDay(dt1, dt2)
 }
 
 object Calendar {
@@ -110,9 +111,6 @@ object Calendar {
 
     }
     date1
-
-
-
   }
 
   def getCurrentTime(): Calendar = { //closest getTime with minutes as an ENUM, not tested
@@ -135,8 +133,9 @@ object Calendar {
   }
 
   def isFirst(date1 : Calendar, date2 : Calendar): Boolean = {
-    if (date1 == mostRecent(date1, date2)) true else false
+    if (date1 != mostRecent(date1, date2)) true else false
   }
+
 
   def toString(date: Calendar): String = {
     if(date.minute == MinuteENUM.Zero){
@@ -146,5 +145,8 @@ object Calendar {
     }
   }
 
+  def sameDay(dt1: Calendar, dt2: Calendar): Boolean = {
+    if(dt1.day == dt2.day && dt1.month == dt2.month && dt1.year == dt2.year) true else false
+  }
 
 }

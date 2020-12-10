@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleExamController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScheduleAppointmentController">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
             <children>
@@ -108,31 +108,32 @@
     <center>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="43.0" layoutY="40.0" text="+ Schedule Exam +" textFill="#1e1e1e">
+                <Label layoutX="43.0" layoutY="40.0" text="+ Schedule Appointment +" textFill="#1e1e1e">
                     <font>
                         <Font name="System Bold" size="28.0" />
                     </font>
                 </Label>
                 <Separator layoutX="14.0" layoutY="87.0" prefHeight="17.0" prefWidth="608.0" />
-            <Label layoutX="44.0" layoutY="126.0" text="Specialty" />
-            <Label layoutX="44.0" layoutY="218.0" text="Practitioner" />
-            <Label layoutX="44.0" layoutY="308.0" text="Date" />
-            <DatePicker fx:id="date_picker" layoutX="43.0" layoutY="337.0" onAction="#onDatePicked" prefHeight="25.0" prefWidth="158.0" />
-            <ComboBox fx:id="specialty_box" layoutX="43.0" layoutY="154.0" onAction="#onSpecialtyPicked" prefHeight="25.0" prefWidth="158.0" />
-            <ComboBox fx:id="practitioner_box" layoutX="43.0" layoutY="246.0" onAction="#onPractitionerPicked" prefWidth="158.0" />
-            <Button fx:id="submit_button" layoutX="191.0" layoutY="508.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="30.0" prefWidth="319.0" style="-fx-background-color: #9ACB7C;" text="Submit" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></Button>
-            <Label fx:id="validate_date_label" layoutX="194.0" layoutY="473.0" prefHeight="17.0" prefWidth="310.0" text="Tip: submit all necessary information" textFill="#e80808" visible="false" />
-            <TextField fx:id="hour_text" layoutX="43.0" layoutY="422.0" prefWidth="158.0" promptText="i.e. 8" />
-            <Label layoutX="43.0" layoutY="395.0" text="Hour" />
-            <ChoiceBox fx:id="minute_picker" layoutX="278.0" layoutY="422.0" prefWidth="158.0" />
-            <Label layoutX="277.0" layoutY="395.0" text="Minute" />
-            <Label fx:id="valid_date_label" layoutX="43.0" layoutY="370.0" prefHeight="17.0" prefWidth="156.0" text="Insert a valid date" textFill="#dd0d0d" visible="false" />
+                <Label layoutX="44.0" layoutY="126.0" text="Specialty" />
+                <Label layoutX="44.0" layoutY="218.0" text="Practitioner" />
+                <Label layoutX="44.0" layoutY="308.0" text="Date" />
+                <DatePicker fx:id="date_picker" layoutX="43.0" layoutY="337.0" onAction="#onDatePicked" prefHeight="25.0" prefWidth="158.0" />
+                <ComboBox fx:id="specialty_box" layoutX="43.0" layoutY="154.0" onAction="#onSpecialtyPicked" prefHeight="25.0" prefWidth="158.0" />
+                <ComboBox fx:id="practitioner_box" layoutX="43.0" layoutY="246.0" onAction="#onPractitionerPicked" prefWidth="158.0" />
+                <Button fx:id="submit_button" layoutX="191.0" layoutY="508.0" mnemonicParsing="false" onAction="#onSubmit" prefHeight="30.0" prefWidth="319.0" style="-fx-background-color: #9ACB7C;" text="Submit" textFill="WHITE">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor></Button>
+                <Label fx:id="date_label" layoutX="194.0" layoutY="473.0" prefHeight="17.0" prefWidth="310.0" textFill="#e80808" />
+                <TextField fx:id="hour_text" layoutX="43.0" layoutY="422.0" prefWidth="158.0" promptText="i.e. 8" />
+                <Label layoutX="43.0" layoutY="395.0" text="Hour" />
+                <ChoiceBox fx:id="minute_picker" layoutX="278.0" layoutY="422.0" prefWidth="158.0" />
+                <Label layoutX="277.0" layoutY="395.0" text="Minute" />
+            <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="218.0" layoutY="482.0" prefHeight="17.0" prefWidth="260.0" text="Tip: submit all necessary information" textFill="#ee0808" visible="false" />
+            <Label fx:id="insert_valid_date" layoutX="70.0" layoutY="370.0" prefHeight="17.0" prefWidth="104.0" text="Insert a valid date" textFill="#eb0f0f" visible="false" />
             </children></AnchorPane>
     </center>
 </BorderPane>

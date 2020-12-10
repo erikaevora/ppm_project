@@ -54,7 +54,7 @@ object PopulateFacility {
   val cli10: Person = ("Joana", cal15, "777888999", Some("999555888"), None, None, "password", true)
 
   val aptm1: Appointment = (cli1, hoje, doc1, None, false)
-  val aptm2: Appointment = (cli2, hoje, doc2, None, false)
+  val aptm2: Appointment = (cli2, Calendar.setDateTime(10,12,2020,23,MinuteENUM.Trinta).get, doc2, None, false)
   val aptm3: Appointment = (cli3, amanha, doc3, None, false)
   val aptm4: Appointment = (cli4, amanha, doc2, None, false)
   val aptm5: Appointment = (cli5, depoisAmanha, doc2, None, false)
@@ -76,15 +76,15 @@ object PopulateFacility {
   val aptm19: Appointment = (cli6, amanha, doc1, None, false)
   val aptm20: Appointment = (cli7, depoisAmanha, doc1, None, false)
 
-  val exam1: Exam = (cli3, doc3, SpecialtyENUM.Cardiac, natal, Some(0), Some("Cardiopatia"), false)
-  val exam2: Exam = (cli2, doc2, SpecialtyENUM.GP, anonovo, Some(20), Some("Escrobuto"), false)
-  val exam3: Exam = (cli1, doc2, SpecialtyENUM.Pulmonology, amanha, Some(85), Some("covid-19"), false)
-  val exam4: Exam = (cli5, doc2, SpecialtyENUM.Neurology, depoisAmanha, Some(20), Some("Inconclusivo"), false)
-  val exam5: Exam = (cli5, doc2, SpecialtyENUM.Dermatology, hoje, Some(0), None, false)
+  val exam1: Exam = (cli3, doc3, SpecialtyENUM.Cardiac, vinteCincodAbril, Some(0), Some("Cardiopatia"), false)
+  val exam2: Exam = (cli2, doc2, SpecialtyENUM.GP, hoje, Some(20), Some("Escrobuto"), false)
+  val exam3: Exam = (cli1, doc3, SpecialtyENUM.Pulmonology, natal, Some(85), Some("covid-19"), false)
+  val exam4: Exam = (cli5, doc2, SpecialtyENUM.Neurology, anonovo, Some(20), Some("Inconclusivo"), false)
+  val exam5: Exam = (cli5, doc2, SpecialtyENUM.Dermatology, natal, Some(0), None, false)
 
-  val exam6: Exam = (cli6, doc1, SpecialtyENUM.Dermatology, hoje, Some(0), None, false)
-  val exam7: Exam = (cli7, doc3, SpecialtyENUM.Anaesthesia, hoje, Some(0), None, false)
-  val exam8: Exam = (cli8, doc5, SpecialtyENUM.Dermatology, hoje, Some(0), None, false)
+  val exam6: Exam = (cli6, doc2, SpecialtyENUM.Dermatology, Calendar.setDateTime(10,12,2020,23,MinuteENUM.Zero).get, Some(0), None, false)
+  val exam7: Exam = (cli7, doc2, SpecialtyENUM.Anaesthesia, anonovo, Some(0), None, false)
+  val exam8: Exam = (cli8, doc5, SpecialtyENUM.Dermatology, anonovo, Some(0), None, false)
   val exam9: Exam = (cli9, doc4, SpecialtyENUM.GP, hoje, Some(0), None, false)
   val exam10: Exam = (cli10, doc4, SpecialtyENUM.Gastroenterology, amanha, Some(0), None, false)
 
@@ -168,7 +168,7 @@ object PopulateFacility {
     fexl = fexl.addExam(exam9)
     fexl = fexl.addExam(exam10)
 
-//    pexl = pexl.addExam(exam1, today).get
+    pexl = pexl.addExam(exam1, today).get
 //    pexl = pexl.addExam(exam2, today).get
 
     var mf1: MedicalFacility = new MedicalFacility(name1, wtl, pal, docl, patl, prescl, fexl, pexl)

@@ -10,6 +10,7 @@ class ExamList(val medicalFacility: String, val exams: Exams) extends Serializab
   def filterExamPatientDate(dt: Calendar, p: Client): Exams = ExamList.filterExamPatientDate(this, dt, p)
   def filterExamDoc(doc: Practitioner): Exams = ExamList.filterExamDoc(this, doc)
   def containsExam(ex: Exam): Boolean = ExamList.containsExam(this, ex)
+  def filterExamDoctorDate(dt: Calendar, p: Practitioner): Exams = ExamList.filterExamDoctorDate(this, dt, p)
   def findExam(cli: Name, doc: Name, dt: DateTime): Option[Exam] = ExamList.findExam(this, cli, doc, dt)
   def payDebt(ex: Exam): Option[ExamList] = ExamList.payDebt(this, ex)
   def coronaDiscount(): Option[ExamList] = ExamList.coronaDiscount(this)
@@ -53,6 +54,10 @@ object ExamList {
   def filterExamPatientDate(el: ExamList, dt: Calendar, p: Practitioner): Exams = {
     val list = getPatientExams(el.exams, p)
     list filter (x => x._4.equals(dt))
+  }
+
+  def filterExamDoctorDate(el: ExamList, dt: Calendar, p: Practitioner): Exams = {
+    el.exams filter (x => (x._2.equals(p) && Calendar.sameDay(x._4, dt)))
   }
 
   def filterExamDoc(el: ExamList, doc: Practitioner): Exams = {

@@ -12,12 +12,12 @@ class AllExamsTodayDoc extends Initializable {
   private val mf1 = FxApp.mf1
   private val mf2 = FxApp.mf2
   private val usr = FxApp.user
-  private val today = Calendar.getCurrentTime()
+//  private val today = Calendar.getCurrentTime()
 
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    val exs = mf1.filterExamPatientDateF(today, usr)
-    val exs2 = mf2.filterExamPatientDateF(today, usr)
+    val exs = mf1.filterExamDoctorDate(FxApp.today, usr)
+    val exs2 = mf2.filterExamDoctorDate(FxApp.today, usr)
     if (exs.nonEmpty) {
       exams_text.setText("Next Exams: " + "\n")
       exs.foreach(a => {

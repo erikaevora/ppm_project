@@ -68,7 +68,7 @@ object AppointmentList /*extends AppointmentListType*/ {
   }
 
   def filterAppointmentsDocDate(al: AppointmentList, doc: Doctor, dt: DateTime): Appointments = {
-    al.appointments filter (x => x._3.equals(doc) && x._2.equals(dt))
+    al.appointments filter (x => x._3.equals(doc) && Calendar.sameDay(x._2, dt))
   }
 
   //auxiliar

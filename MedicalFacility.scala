@@ -73,6 +73,7 @@ case class MedicalFacility(nome: String, wtl: WaitingList, pal: PastAppointments
   def filterExamDocF(doc: Doctor): Exams = MedicalFacility.filterExamDocF(this, doc)
   def containsExamF(ex: Exam): Boolean = MedicalFacility.containsExamF(this, ex)
   def findExamFEL(cli: Name, doc: Name, dt: DateTime): Option[Exam] = MedicalFacility.findExamFEL(this, cli, doc, dt)
+  def filterExamDoctorDate(dt: Calendar, p: Doctor): Exams = MedicalFacility.filterExamDoctorDate(this, dt, p)
 
   def getPatientExamsP(p: Person): Exams = MedicalFacility.getPatientExamsP(this, p)
   def editExamResult(ex: Exam, r: Result): MedicalFacility = MedicalFacility.editExamResult(this, ex, r)
@@ -300,6 +301,7 @@ case class MedicalFacility(nome: String, wtl: WaitingList, pal: PastAppointments
         case _ => Some(new MedicalFacility(mf.nome, mf.wtl, mf.pal, mf.docl, mf.patl, mf.prescl, toFutureExamList(tmp.get), mf.pexl))
       }
     }
+    def filterExamDoctorDate(mf: MedicalFacility, dt: Calendar, p: Doctor): Exams = mf.fexl.filterExamDoctorDate(dt, p)
     def checkDateAvailability(mf: MedicalFacility, dt: Calendar): Boolean = mf.fexl.checkDateAvailability(dt)
     def containsExamF(mf: MedicalFacility, ex: Exam): Boolean = mf.fexl.containsExam(ex)
     def findExamFEL(mf: MedicalFacility, cli: Name, doc: Name, dt: DateTime): Option[Exam] = mf.fexl.findExam(cli, doc, dt)

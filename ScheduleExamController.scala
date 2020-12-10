@@ -45,6 +45,12 @@ class ScheduleExamController extends Initializable{
   private var date_label: Label = _
 
   @FXML
+  private var valid_date_label: Label = _
+
+  @FXML
+  private var warning_label_final: Label = _
+
+  @FXML
   private var hour_text: TextField = _
 
   @FXML
@@ -156,34 +162,45 @@ class ScheduleExamController extends Initializable{
 
   def onDatePicked: Unit = {
     date = date_picker.getValue.toString.split("-")  //year-month-day
-//    dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, MinuteENUM.Zero)
   }
 
   def onSubmit: Unit = {
-    val hour = hour_text.getText.toInt
-
-    val minute = minute_picker.getValue
-    if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
-    val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour, min).get
-
-    if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)){
-
-      if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
-      else {
-        val new_mf = FxApp.mf1.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
-        FxApp.mf1 = new_mf
+    if(hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null) {
+      warning_label_final.setVisible(true)
+    }
+    else {
+      val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+      if (Calendar.isFirst(verData, FxApp.today)) {
+        valid_date_label.setVisible(true)
       }
-
-    } else {
-
-      if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
       else {
-        val new_mf = FxApp.mf2.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
-        FxApp.mf2 = new_mf
+        valid_date_label.setVisible(false)
+        val hour = hour_text.getText.toInt
+
+        val minute = minute_picker.getValue
+        if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
+        val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour, min).get
+
+        if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
+
+          if (!FxApp.mf1.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          else {
+            val new_mf = FxApp.mf1.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
+            FxApp.mf1 = new_mf
+          }
+
+        } else {
+
+          if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+          else {
+            val new_mf = FxApp.mf2.addExamF((FxApp.user, pract, spec, dateHour, Some(0), Some(""), false))
+            FxApp.mf2 = new_mf
+          }
+        }
+
+        onExamsClicked
       }
     }
-
-    onExamsClicked
 
   }
 

@@ -14,8 +14,8 @@ class NextAppointmentDoc extends Initializable {
   private val usr = FxApp.user
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    val exl = mf1.filterAppointmentsDoc(usr).sortWith((a, b) => !Calendar.isFirst(a._2, b._2))
-    val exl2 = mf2.filterAppointmentsDoc(usr).sortWith((a, b) => !Calendar.isFirst(a._2, b._2))
+    val exl = mf1.filterAppointmentsDoc(usr).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
+    val exl2 = mf2.filterAppointmentsDoc(usr).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
 
     if(exl.length > 0) {
       val ex = exl.head

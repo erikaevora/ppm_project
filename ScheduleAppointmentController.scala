@@ -54,7 +54,13 @@ class ScheduleAppointmentController extends Initializable{
   private var submit_button: Button = _
 
   @FXML
+  private var validate_date_label: Label = _
+
+  @FXML
   private var error_label: Label = _
+
+  @FXML
+  private var insert_valid_date: Label = _
 
   private var date: Array[String] = Array("0", "0", "0")
   private var spec: SpecialtyENUM.Value = SpecialtyENUM.GP
@@ -162,37 +168,48 @@ class ScheduleAppointmentController extends Initializable{
   }
 
   def onSubmit: Unit = {
-    val hour = hour_text.getText
-    val minute = minute_picker.getValue
-
-    if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
-    val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour.toInt, min).get
-
-    if (hour.length > 0 && minute != -1) {
-
-      if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
-
-        if (!FxApp.mf1.wtl.availableSlot(dateHour, pract)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
-        else {
-          val new_mf = FxApp.mf1.addAppointmentWL(FxApp.user, dateHour, pract, Some(0), false).get
-          FxApp.mf1 = new_mf
-        }
-
-      } else {
-
-        if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
-        else {
-          val new_mf = FxApp.mf2.addAppointmentWL((FxApp.user, dateHour, pract, Some(0), false)).get
-          FxApp.mf2 = new_mf
-        }
-      }
-
-      onAppClicked
-
-    } else {
-      error_label.setText("Please complete every field.")
+    if (hour_text == "" || minute_picker.getValue == null || practitioner_box.getValue == null || specialty_box.getValue == null || date_picker.getValue == null) {
+      error_label.setVisible(true)
     }
+    else {
+      val verData = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, 0, min).get
+      if (Calendar.isFirst(verData, FxApp.today)) {
+        insert_valid_date.setVisible(true)
+      }
+      else {
+        val hour = hour_text.getText
+        val minute = minute_picker.getValue
 
+        if (minute == 0) min = MinuteENUM.Zero else min = MinuteENUM.Trinta
+        val dateHour = Calendar.setDateTime(date(2).toInt, date(1).toInt, date(0).toInt, hour.toInt, min).get
+
+        if (hour.length > 0 && minute != -1) {
+
+          if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
+
+            if (!FxApp.mf1.wtl.availableSlot(dateHour, pract)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            else {
+              val new_mf = FxApp.mf1.addAppointmentWL(FxApp.user, dateHour, pract, Some(0), false).get
+              FxApp.mf1 = new_mf
+            }
+
+          } else {
+
+            if (!FxApp.mf2.fexl.checkDateAvailability(dateHour)) date_label.setText("The date and time you chose are unavailable, please pick a different one.")
+            else {
+              val new_mf = FxApp.mf2.addAppointmentWL((FxApp.user, dateHour, pract, Some(0), false)).get
+              FxApp.mf2 = new_mf
+            }
+          }
+
+          onAppClicked
+
+        } else {
+          error_label.setText("Please complete every field.")
+        }
+
+      }
+    }
   }
 
 }

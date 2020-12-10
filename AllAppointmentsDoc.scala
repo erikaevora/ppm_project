@@ -12,9 +12,10 @@ class AllAppointmentsDoc extends Initializable {
   private val usr = FxApp.user
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    val apts = FxApp.mf1.filterAppointmentsDoc(FxApp.user)
-    val aptms2 = FxApp.mf2.filterAppointmentsDoc(FxApp.user)
+    val apts = FxApp.mf1.filterAppointmentsDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
+    val aptms2 = FxApp.mf2.filterAppointmentsDoc(FxApp.user).sortWith((a, b) => Calendar.isFirst(a._2, b._2))
     if (apts.nonEmpty) {
+      apts.sortWith((x,y) => Calendar.isFirst(x._2, y._2))
       appointments_text.setText("Next Appointments: " + "\n")
       apts.foreach(a => {
         appointments_text.appendText("Date: " + Calendar.toString(a._2) + " - " + "Patient name: " + a._1._1 + " - " + " Birthdate: " + Calendar.toString(a._1._2))

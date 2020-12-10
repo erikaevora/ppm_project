@@ -11,11 +11,10 @@ class AllAppointmentsTodayDoc extends Initializable {
 
   private val mf1 = FxApp.mf1
   private val mf2 = FxApp.mf2
-  private val today = Calendar.getCurrentTime()
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
-    val exs = mf1.filterAppointmentsDocDate(FxApp.user, today)
-    val exs2 = mf2.filterAppointmentsDocDate(FxApp.user, today)
+    val exs = mf1.filterAppointmentsDocDate(FxApp.user, FxApp.today)
+    val exs2 = mf2.filterAppointmentsDocDate(FxApp.user, FxApp.today)
     if (exs.nonEmpty) {
       appointments_text.setText("Next Appointments: " + "\n")
       exs.foreach(a => {
