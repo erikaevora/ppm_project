@@ -6,6 +6,7 @@ import javafx.scene.{Parent, Scene}
 import javafx.scene.control.ScrollPane.ScrollBarPolicy
 import javafx.scene.control.{Button, Label, ScrollPane, TextArea}
 import javafx.scene.image.ImageView
+import javafx.scene.paint.Color
 import javafx.stage.{Modality, Stage}
 
 class ExamsController extends Initializable{
@@ -70,6 +71,54 @@ class ExamsController extends Initializable{
         }
       })
     }
+  }
+
+  def onHomeHovered: Unit = {
+    home_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onHomeHoverExited: Unit = {
+    home_button.setTextFill(Color.BLACK)
+  }
+
+  def onAppHovered: Unit = {
+    appointments_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onAppHoverExited: Unit = {
+    appointments_button.setTextFill(Color.BLACK)
+  }
+
+  def onPrescriptionHovered: Unit = {
+    prescriptions_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onPrescriptionHoverExited: Unit = {
+    prescriptions_button.setTextFill(Color.BLACK)
+  }
+
+  def onReceiptsHovered: Unit = {
+    receipts_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onReceiptsHoverExited: Unit ={
+    receipts_button.setTextFill(Color.BLACK)
+  }
+
+  def onHistoryHovered: Unit = {
+    history_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onHistoryHoverExited: Unit = {
+    history_button.setTextFill(Color.BLACK)
+  }
+
+  def onProfileHovered: Unit = {
+    profile_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onProfileHoverExited: Unit = {
+    profile_button.setTextFill(Color.BLACK)
   }
 
   def onScheduleClicked: Unit = {

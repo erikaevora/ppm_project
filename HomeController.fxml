@@ -24,14 +24,14 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Label fx:id="exams_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="51.0" onMouseClicked="#onExamsClicked" text="Exams">
+                              <Label fx:id="exams_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="51.0" onMouseClicked="#onExamsClicked" onMouseEntered="#onExamHovered" onMouseExited="#onExamHoverExited" text="Exams">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor></Label>
-                              <Label fx:id="appointments_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="81.0" onMouseClicked="#onAppClicked" text="Appointments">
+                              <Label fx:id="appointments_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="81.0" onMouseClicked="#onAppClicked" onMouseEntered="#onAppHovered" onMouseExited="#onAppHoverExited" text="Appointments">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -39,7 +39,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Label fx:id="history_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="171.0" onMouseClicked="#onHistoryClicked" text="History">
+                              <Label fx:id="history_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="171.0" onMouseClicked="#onHistoryClicked" onMouseEntered="#onHistoryHovered" onMouseExited="#onHistoryHoverExited" text="History">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -47,7 +47,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="111.0" onMouseClicked="#onPrescriptionsClicked" text="Prescriptions">
+                              <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="111.0" onMouseClicked="#onPrescriptionsClicked" onMouseEntered="#onPrescriptionHovered" onMouseExited="#onPrescriptionHoverExited" text="Prescriptions">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -55,7 +55,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Label fx:id="profile_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="201.0" onMouseClicked="#onProfileClicked" text="My Profile">
+                              <Label fx:id="profile_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="201.0" onMouseClicked="#onProfileClicked" onMouseEntered="#onProfileHovered" onMouseExited="#onProfileHoverExited" text="My Profile">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -63,7 +63,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Label>
-                              <Label fx:id="receipts_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="141.0" onMouseClicked="#onReceiptsClicked" text="Receipts">
+                              <Label fx:id="receipts_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="141.0" onMouseClicked="#onReceiptsClicked" onMouseEntered="#onReceiptsHovered" onMouseExited="#onReceiptsHoverExited" text="Receipts">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

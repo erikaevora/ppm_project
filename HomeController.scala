@@ -1,6 +1,7 @@
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.Parent
 import javafx.scene.control.{Button, Label}
+import javafx.scene.paint.Color
 
 class HomeController {
   @FXML
@@ -33,6 +34,54 @@ class HomeController {
   @FXML
   private var schedule_app_button: Label = _
 
+
+  def onExamHovered: Unit = {
+    exams_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onExamHoverExited: Unit = {
+    exams_button.setTextFill(Color.BLACK)
+  }
+
+  def onAppHovered: Unit = {
+    appointments_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onAppHoverExited: Unit = {
+    appointments_button.setTextFill(Color.BLACK)
+  }
+
+  def onPrescriptionHovered: Unit = {
+    prescriptions_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onPrescriptionHoverExited: Unit = {
+    prescriptions_button.setTextFill(Color.BLACK)
+  }
+
+  def onReceiptsHovered: Unit = {
+    receipts_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onReceiptsHoverExited: Unit ={
+    receipts_button.setTextFill(Color.BLACK)
+  }
+
+  def onHistoryHovered: Unit = {
+    history_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onHistoryHoverExited: Unit = {
+    history_button.setTextFill(Color.BLACK)
+  }
+
+  def onProfileHovered: Unit = {
+      profile_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onProfileHoverExited: Unit = {
+    profile_button.setTextFill(Color.BLACK)
+  }
 
   def onLogoutClicked: Unit = {
     val fxmlLoader = new FXMLLoader(getClass.getResource("LoginController.fxml"))
