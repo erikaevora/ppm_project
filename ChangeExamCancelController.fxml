@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeExamCancelController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChangeExamCancelController">
    <children>
       <Label layoutX="167.0" layoutY="59.0" text="Your Exams:">
          <font>
@@ -21,13 +22,22 @@
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="cancel_button" layoutX="207.0" layoutY="331.0" mnemonicParsing="false" onAction="#onCancelClicked" prefHeight="30.0" prefWidth="192.0" style="-fx-background-color: #4C96C7;" text="Cancel Exam" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
-      <Button fx:id="back_button" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#onGoBackClicked" style="-fx-background-color: #1b1b1b;" text="Go back" textFill="WHITE" />
+      <Button fx:id="back_button" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#onGoBackClicked" style="-fx-background-color: #1b1b1b;" text="Go back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <ComboBox fx:id="exam_date_box" layoutX="250.0" layoutY="56.0" prefHeight="25.0" prefWidth="185.0" />
       <ChoiceBox fx:id="minute_box" layoutX="252.0" layoutY="200.0" prefHeight="25.0" prefWidth="185.0" />
       <TextField fx:id="hour_text" layoutX="252.0" layoutY="150.0" prefHeight="25.0" prefWidth="185.0" />
@@ -42,7 +52,7 @@
          </font>
       </Label>
       <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="169.0" layoutY="258.0" prefHeight="17.0" prefWidth="268.0" textFill="#e80b0b" />
-      <Label fx:id="success_label" alignment="CENTER" layoutX="169.0" layoutY="250.0" prefHeight="17.0" prefWidth="268.0" textFill="#9acb7c" />
+      <Label fx:id="success_label" layoutX="169.0" layoutY="250.0" prefHeight="17.0" prefWidth="268.0" textFill="#9acb7c" />
       <Label fx:id="date_warning" layoutX="289.0" layoutY="128.0" prefHeight="17.0" prefWidth="168.0" text="Select a valid date" textFill="#d70e0e" visible="false" />
    </children>
 </AnchorPane>
