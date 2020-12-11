@@ -65,13 +65,13 @@
                                             </cursor>
                                         </Label>
                                     </children>
-                                    <effect>
-                                        <Bloom>
-                                            <input>
-                                                <InnerShadow />
-                                            </input>
-                                        </Bloom>
-                                    </effect>
+<!--                                    <effect>-->
+<!--                                        <Bloom>-->
+<!--                                            <input>-->
+<!--                                                <InnerShadow />-->
+<!--                                            </input>-->
+<!--                                        </Bloom>-->
+<!--                                    </effect>-->
                                 </AnchorPane>
                             </content>
                         </ScrollPane>

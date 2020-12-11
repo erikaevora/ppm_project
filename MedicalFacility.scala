@@ -150,7 +150,8 @@ case class MedicalFacility(nome: String, wtl: WaitingList, pal: PastAppointments
         val pat = mf.patl.changePhoneNr(p, n)
         pat match {
           case None => None
-          case _ => Some(new MedicalFacility(mf.nome, mf.wtl, mf.pal, mf.docl, mf.patl.changePhoneNr(p, n).get, mf.prescl, mf.fexl, mf.pexl))
+//          case _ => Some(new MedicalFacility(mf.nome, mf.wtl, mf.pal, mf.docl, mf.patl.changePhoneNr(p, n).get, mf.prescl, mf.fexl, mf.pexl))
+          case _ => Some(new MedicalFacility(mf.nome, mf.wtl, mf.pal, mf.docl, pat.get, mf.prescl, mf.fexl, mf.pexl))
         }
       }
     }

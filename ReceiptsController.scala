@@ -45,7 +45,7 @@ class ReceiptsController extends Initializable {
       val pel = FxApp.mf1.pexl
 
       pal.appointments.foreach(a => {
-        if (a._1 == x1.get) {
+        if (a._1._3 == x1.get._3) {
           text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
           text_area.appendText("Type of procedure: Appointment\n")
           text_area.appendText("Specialty: " + a._3._5.getOrElse("--") + "\n")
@@ -58,7 +58,7 @@ class ReceiptsController extends Initializable {
 
 
       pel.exams.foreach(a => {
-        if (a._1 == x1.get) {
+        if (a._1._3 == x1.get._3) {
           text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
           text_area.appendText("Type of procedure: Exam\n")
           text_area.appendText("Specialty: " + a._2._5.getOrElse("--") + "\n")
@@ -75,7 +75,7 @@ class ReceiptsController extends Initializable {
       val pel = FxApp.mf2.pexl
 
       pal.appointments.foreach(a => {
-        if (a._1 == x2.get) {
+        if (a._1._3 == x2.get._3) {
           text_area.appendText("Date: " + Calendar.toString(a._2) + "\n")
           text_area.appendText("Type of procedure: Appointment\n")
           text_area.appendText("Specialty: " + a._3._5.getOrElse("--") + "\n")
@@ -87,7 +87,7 @@ class ReceiptsController extends Initializable {
       })
 
       pel.exams.foreach(a => {
-        if (a._1 == x2.get) { //??
+        if (a._1._3 == x2.get._3) { //??
           text_area.appendText("Date: " + Calendar.toString(a._4) + "\n")
           text_area.appendText("Type of procedure: Exam\n")
           text_area.appendText("Specialty: " + a._2._5.getOrElse("--") + "\n")

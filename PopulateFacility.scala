@@ -54,7 +54,7 @@ object PopulateFacility {
   val cli10: Person = ("Joana", cal15, "777888999", Some("999555888"), None, None, "password", true)
 
   val aptm1: Appointment = (cli1, hoje, doc1, None, false)
-  val aptm2: Appointment = (cli2, Calendar.setDateTime(10,12,2020,23,MinuteENUM.Trinta).get, doc2, None, false)
+  val aptm2: Appointment = (cli2, Calendar.setDateTime(11,12,2020,23,MinuteENUM.Trinta).get, doc2, None, false)
   val aptm3: Appointment = (cli3, amanha, doc3, None, false)
   val aptm4: Appointment = (cli4, amanha, doc2, None, false)
   val aptm5: Appointment = (cli5, depoisAmanha, doc2, None, false)
@@ -82,7 +82,7 @@ object PopulateFacility {
   val exam4: Exam = (cli5, doc2, SpecialtyENUM.Neurology, anonovo, Some(20), Some("Inconclusivo"), false)
   val exam5: Exam = (cli5, doc2, SpecialtyENUM.Dermatology, natal, Some(0), None, false)
 
-  val exam6: Exam = (cli6, doc2, SpecialtyENUM.Dermatology, Calendar.setDateTime(10,12,2020,23,MinuteENUM.Zero).get, Some(0), None, false)
+  val exam6: Exam = (cli6, doc2, SpecialtyENUM.Dermatology, Calendar.setDateTime(11,12,2020,23,MinuteENUM.Zero).get, Some(0), None, false)
   val exam7: Exam = (cli7, doc2, SpecialtyENUM.Anaesthesia, anonovo, Some(0), None, false)
   val exam8: Exam = (cli8, doc5, SpecialtyENUM.Dermatology, anonovo, Some(0), None, false)
   val exam9: Exam = (cli9, doc4, SpecialtyENUM.GP, hoje, Some(0), None, false)

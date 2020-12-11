@@ -17,7 +17,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="200.0">
                                     <children>
-                                        <Label fx:id="home_button" accessibleRole="BUTTON" disable="true" layoutX="9.0" layoutY="21.0" onMouseClicked="#onExamsClicked" text="Home">
+                                        <Label fx:id="home_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="21.0" onMouseClicked="#onHomeClicked" text="Home">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -48,7 +48,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="8.0" layoutY="109.0" onMouseClicked="#onPrescriptionsClicked" text="See all prescriptions">
+                                        <Label fx:id="prescriptions_button" accessibleRole="BUTTON" disable="true" layoutX="8.0" layoutY="109.0" onMouseClicked="#onPrescriptionsClicked" text="See all prescriptions">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

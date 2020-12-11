@@ -51,7 +51,7 @@ class AppointmentsController extends Initializable{
     if(x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
       val wtl = FxApp.mf1.wtl
       wtl.appointments.foreach(a => {
-        if(a._1 == x1.get) {
+        if(a._1._3 == x1.get._3) {
           text_area.appendText("Date: "+ Calendar.toString(a._2) + "\n")
           text_area.appendText("Appointment: " + a._3._5.get.toString + "\n")
           text_area.appendText("Practitioner: " + a._3._1 + "\n")
@@ -62,7 +62,7 @@ class AppointmentsController extends Initializable{
     } else {
       val wtl = FxApp.mf2.wtl
       wtl.appointments.foreach(a => {
-        if(a._1 == x2.get) {
+        if(a._1._3 == x2.get._3) {
           text_area.appendText("Date: "+ Calendar.toString(a._2) + "\n")
           text_area.appendText("Appointment: " + a._3._5.get.toString + "\n")
           text_area.appendText("Practitioner: " + a._3._1 + "\n")

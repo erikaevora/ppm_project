@@ -5,6 +5,7 @@ import Calendar.toString
 import ExamList.Exam
 import PersonList.Person
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
+import javafx.geometry.Pos
 import javafx.scene.Parent
 import javafx.scene.control.{Button, ChoiceBox, ComboBox, DatePicker, Label, TextField}
 
@@ -155,6 +156,7 @@ class ChangeExamCancelController extends Initializable{
         val new_mf = FxApp.mf1.deleteExamF(e)
         FxApp.mf1 = new_mf
         success_label.setText("Your exam was successfully canceled.")
+        success_label.setAlignment(Pos.CENTER)
         success_label.setVisible(true)
 
       } else {

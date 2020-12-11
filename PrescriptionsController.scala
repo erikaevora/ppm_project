@@ -37,8 +37,8 @@ class PrescriptionsController extends Initializable {
   @FXML
   private var text_area: TextArea = _
 
-  private val x1 = FxApp.mf1.prescl.getPatientPrescription(FxApp.user)
-  private val x2 = FxApp.mf2.prescl.getPatientPrescription(FxApp.user)
+  private val x1 = FxApp.mf1.getPatientPrescription(FxApp.user)
+  private val x2 = FxApp.mf2.getPatientPrescription(FxApp.user)
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
 

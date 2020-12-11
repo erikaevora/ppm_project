@@ -52,7 +52,7 @@ class ExamsController extends Initializable{
     if(x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
       val fel = FxApp.mf1.fexl
       fel.exams.foreach(e => {
-        if(e._1 == x1.get) {
+        if(e._1._3 == x1.get._3) {
           text_area.appendText("Date: " + Calendar.toString(e._4) + "\n")
           text_area.appendText("Exam: " + e._3.toString + "\n")
           text_area.appendText("Practitioner: " + e._2._1 + "\n")
@@ -63,7 +63,7 @@ class ExamsController extends Initializable{
     } else {
       val fel = FxApp.mf2.fexl
       fel.exams.foreach(e => {
-        if(e._1 == x2.get) {
+        if(e._1._3 == x2.get._3) {
           text_area.appendText("Date: "+ Calendar.toString(e._4) + "\n")
           text_area.appendText("Exam: " + e._3.toString + "\n")
           text_area.appendText("Practitioner: " + e._2._1 + "\n")

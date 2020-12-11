@@ -81,11 +81,11 @@ object PrescriptionList {
   }
 
   def prescriptionEqualsPatient(p: Client)(psc: Prescription): Boolean = {
-    if (psc._1 == p) true else false
+    if (psc._1._3 == p._3) true else false
   }
 
   def prescriptionEqualsDoctor(doc: Doctor)(psc: Prescription): Boolean = {
-    if (psc._2 == doc) true else false
+    if (psc._2._3 == doc._3) true else false
   }
 
   def prescriptionEqualsSpecialty(sp: Specialty)(psc: Prescription): Boolean = {

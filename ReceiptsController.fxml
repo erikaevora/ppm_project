@@ -75,9 +75,9 @@
                                         </Label>
 
                                     </children>
-                                    <effect>
-                                        <Bloom />
-                                    </effect>
+<!--                                    <effect>-->
+<!--                                        <Bloom />-->
+<!--                                    </effect>-->
                                 </AnchorPane>
                             </content>
                         </ScrollPane>

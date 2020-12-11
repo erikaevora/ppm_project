@@ -50,11 +50,11 @@ object AppointmentList {
   }
 
   def filterAppointmentsDoc(al: AppointmentList, doc: Doctor): Appointments = {
-    al.appointments filter (x => x._3.equals(doc))
+    al.appointments filter (x => x._3._3.equals(doc._3))
   }
 
   def filterAppointmentsDocDate(al: AppointmentList, doc: Doctor, dt: DateTime): Appointments = {
-    al.appointments filter (x => x._3.equals(doc) && Calendar.sameDay(x._2, dt))
+    al.appointments filter (x => x._3._3.equals(doc._3) && Calendar.sameDay(x._2, dt))
   }
 
   //auxiliar
@@ -120,6 +120,6 @@ object AppointmentList {
   }
 
   def getAllAppointmentsDoc(al: AppointmentList, doc: Doctor): Appointments = {
-    al.appointments filter (x => x._3.equals(doc))
+    al.appointments filter (x => x._3._3.equals(doc._3))
   }
 }

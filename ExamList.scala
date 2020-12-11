@@ -57,11 +57,11 @@ object ExamList {
   }
 
   def filterExamDoctorDate(el: ExamList, dt: Calendar, p: Practitioner): Exams = {
-    el.exams filter (x => (x._2.equals(p) && Calendar.sameDay(x._4, dt)))
+    el.exams filter (x => (x._2._3.equals(p._3) && Calendar.sameDay(x._4, dt)))
   }
 
   def filterExamDoc(el: ExamList, doc: Practitioner): Exams = {
-    el.exams filter (x => x._2.equals(doc))
+    el.exams filter (x => x._2._3.equals(doc._3))
   }
 
   def containsExam(el: ExamList, ex: Exam): Boolean = {

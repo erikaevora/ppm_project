@@ -45,7 +45,7 @@ class HistoryController extends Initializable {
       val pexl = FxApp.mf1.pexl
       val prescl = FxApp.mf1.prescl
       pal.appointments.foreach(a => {
-        if (a._1 == x1.get) {
+        if (a._1._3 == x1.get._3) {
           text_area.appendText("Appointment: " + "\n")
           text_area.appendText("Date: "+ Calendar.toString(a._2) + "\n")
           text_area.appendText("Appointment: " + a._3._5.get.toString + "\n")
@@ -54,7 +54,7 @@ class HistoryController extends Initializable {
         }
       })
       pexl.exams.foreach(e => {
-        if (e._1 == x1.get) {
+        if (e._1._3 == x1.get._3) {
           text_area.appendText("Exam: " + "\n")
           text_area.appendText("Date: "+ Calendar.toString(e._4) + "\n")
           text_area.appendText("Exam: " + e._3.toString + "\n")
@@ -63,7 +63,7 @@ class HistoryController extends Initializable {
         }
       })
       prescl.prescriptions.foreach(p => {
-        if (p._1 == x1.get) {
+        if (p._1._3 == x1.get._3) {
           text_area.appendText("Prescription: " + "\n")
           text_area.appendText("Date: " + Calendar.toString(p._3) + "\n")
           text_area.appendText("Practitioner: " + p._2._1 + "\n")
@@ -78,7 +78,7 @@ class HistoryController extends Initializable {
       val pexl = FxApp.mf2.pexl
       val prescl = FxApp.mf2.prescl
       pal.appointments.foreach(a => {
-        if (a._1 == x2.get) {
+        if (a._1._3 == x2.get._3) {
           text_area.appendText("Appointment: " + "\n")
           text_area.appendText("Date: "+ Calendar.toString(a._2) + "\n")
           text_area.appendText("Appointment: " + a._3._5.get.toString + "\n")
@@ -87,7 +87,7 @@ class HistoryController extends Initializable {
         }
       })
       pexl.exams.foreach(e => {
-        if (e._1 == x2.get) {
+        if (e._1._3 == x2.get._3) {
           text_area.appendText("Exam: " + "\n")
           text_area.appendText("Date: "+ Calendar.toString(e._4) + "\n")
           text_area.appendText("Exam: " + e._3.toString + "\n")
@@ -96,7 +96,7 @@ class HistoryController extends Initializable {
         }
       })
       prescl.prescriptions.foreach(p => {
-        if (p._1 == x2.get) {
+        if (p._1._3 == x2.get._3) {
           text_area.appendText("Prescription: " + "\n")
           text_area.appendText("Date: " + Calendar.toString(p._3) + "\n")
           text_area.appendText("Practitioner: " + p._2._1 + "\n")
