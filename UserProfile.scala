@@ -1,10 +1,11 @@
 import java.net.URL
 import java.util.ResourceBundle
 
-import PersonList.{NIF, People, Person}
+import PersonList.{NIF, Person}
 import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.{Parent, Scene}
 import javafx.scene.control.{Label, TextArea}
+import javafx.scene.paint.Color
 import javafx.stage.{Modality, Stage}
 
 class UserProfile extends Initializable{
@@ -141,6 +142,62 @@ class UserProfile extends Initializable{
     val mainViewRoot: Parent = fxmlLoader.load()
 
     receipts_button.getScene().setRoot(mainViewRoot)
+  }
+
+  def onHomeEntered: Unit = {
+    home_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onHomeExited: Unit = {
+    home_button.setTextFill(Color.BLACK)
+  }
+
+  def onExamsEntered: Unit = {
+    exams_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onExamsExited: Unit = {
+    exams_button.setTextFill(Color.BLACK)
+  }
+
+  def onAppEntered: Unit = {
+    appointments_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onAppExited: Unit = {
+    appointments_button.setTextFill(Color.BLACK)
+  }
+
+  def onPrescEntered: Unit = {
+    prescriptions_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onPrescExited: Unit = {
+    prescriptions_button.setTextFill(Color.BLACK)
+  }
+
+  def onReceiptsEntered: Unit = {
+    receipts_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onReceiptsExited: Unit = {
+    receipts_button.setTextFill(Color.BLACK)
+  }
+
+  def onHistoryEntered: Unit = {
+    history_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onHistoryExited: Unit = {
+    history_button.setTextFill(Color.BLACK)
+  }
+
+  def onProfileEntered: Unit = {
+    profile_button.setTextFill(Color.web("0X4C96C7"))
+  }
+
+  def onProfileExited: Unit = {
+    profile_button.setTextFill(Color.BLACK)
   }
 
 

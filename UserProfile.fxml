@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserProfile">
     <left>
         <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
             <children>
@@ -17,7 +17,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="487.0" prefWidth="200.0">
                                     <children>
-                                        <Label fx:id="home_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="21.0" onMouseClicked="#onHomeClicked" text="Home">
+                                        <Label fx:id="home_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="21.0" onMouseClicked="#onHomeClicked" onMouseEntered="#onHomeEntered" onMouseExited="#onHomeExited" text="Home">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -25,14 +25,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="exams_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="51.0" onMouseClicked="#onExamsClicked" text="Exams">
-                                            <font>
-                                                <Font size="14.0" />
-                                            </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor></Label>
-                                        <Label fx:id="appointments_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="81.0" onMouseClicked="#onAppClicked" text="Appointments">
+                                        <Label fx:id="exams_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="51.0" onMouseClicked="#onExamsClicked" onMouseEntered="#onExamsEntered" onMouseExited="#onExamsExited" text="Exams">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -40,7 +33,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="history_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="171.0" onMouseClicked="#onHistoryClicked" text="History">
+                                        <Label fx:id="appointments_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="81.0" onMouseClicked="#onAppClicked" onMouseEntered="#onAppEntered" onMouseExited="#onAppExited" text="Appointments">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -48,7 +41,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="111.0" onMouseClicked="#onPrescriptionsClicked" text="Prescriptions">
+                                        <Label fx:id="history_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="171.0" onMouseClicked="#onHistoryClicked" onMouseEntered="#onHistoryEntered" onMouseExited="#onHistoryExited" text="History">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -56,7 +49,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="profile_button" accessibleRole="BUTTON" disable="true" layoutX="9.0" layoutY="201.0" onMouseClicked="#onProfileClicked" text="My Profile">
+                                        <Label fx:id="prescriptions_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="111.0" onMouseClicked="#onPrescriptionsClicked" onMouseEntered="#onPrescEntered" onMouseExited="#onPrescExited" text="Prescriptions">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -64,7 +57,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
-                                        <Label fx:id="receipts_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="141.0" onMouseClicked="#onReceiptsClicked" text="Receipts">
+                                        <Label fx:id="profile_button" accessibleRole="BUTTON" disable="true" layoutX="9.0" layoutY="201.0" onMouseClicked="#onProfileClicked" onMouseEntered="#onProfileEntered" onMouseExited="#onProfileExited" text="My Profile">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -72,13 +65,18 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Label>
+                                        <Label fx:id="receipts_button" accessibleRole="BUTTON" layoutX="9.0" layoutY="141.0" onMouseClicked="#onReceiptsClicked" onMouseEntered="#onReceiptsEntered" onMouseExited="#onReceiptsExited" text="Receipts">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Label>
+
                                     </children>
                                     <effect>
-                                        <Bloom>
-                                            <input>
-                                                <InnerShadow />
-                                            </input>
-                                        </Bloom>
+                                        <Bloom />
                                     </effect>
                                 </AnchorPane>
                             </content>
