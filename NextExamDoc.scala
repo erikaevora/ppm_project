@@ -29,7 +29,7 @@ class NextExamDoc extends Initializable {
       exam_text.appendText("Patient: " + ex._1._1 + " - " + Calendar.toString(ex._1._2) + "\n")
     }
     if(exl.length == 0 && exl2.length == 0) {
-      exam_text.setText("No appointments scheduled for the near future...")
+      exam_text.setText("No exams scheduled for the near future...")
     }
   }
 }

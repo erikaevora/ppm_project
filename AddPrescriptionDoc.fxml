@@ -111,8 +111,8 @@
             <TextArea fx:id="text_area" accessibleRole="LIST_VIEW" editable="false" layoutX="43.0" layoutY="186.0" prefHeight="318.0" prefWidth="557.0" />
             <Button fx:id="confirm_button" layoutX="525.0" layoutY="527.0" mnemonicParsing="false" onAction="#onConfirmClicked" text="Confirm" />
             <ComboBox fx:id="combo_box" layoutX="43.0" layoutY="134.0" onAction="#onComboAction" prefHeight="25.0" prefWidth="258.0" />
-            <Label layoutX="408.0" layoutY="138.0" text="Cost" />
-            <TextField fx:id="cost_Text_Field" disable="true" editable="false" layoutX="451.0" layoutY="134.0" />
+<!--            <Label layoutX="408.0" layoutY="138.0" text="Cost" />-->
+<!--            <TextField fx:id="cost_Text_Field" disable="true" editable="false" layoutX="451.0" layoutY="134.0" />-->
             <Button fx:id="cancel_button" layoutX="449.0" layoutY="527.0" mnemonicParsing="false" onAction="#onCancelClicked" text="Cancel" />
             <Label fx:id="warning_label" layoutX="43.0" layoutY="519.0" prefHeight="17.0" prefWidth="311.0" text="The prescription must contain a description" textFill="#f50a0a" visible="false" />
             </children></AnchorPane>
