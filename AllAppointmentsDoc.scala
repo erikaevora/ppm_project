@@ -19,14 +19,14 @@ class AllAppointmentsDoc extends Initializable {
       appointments_text.setText("Next Appointments: " + "\n")
       apts.foreach(a => {
         appointments_text.appendText("Date: " + Calendar.toString(a._2) + " - " + "Patient name: " + a._1._1 + " - " + " Birthdate: " + Calendar.toString(a._1._2))
-        appointments_text.appendText("\n")
+        appointments_text.appendText("\n\n")
       })
     }
     if (aptms2.nonEmpty) {
       appointments_text.setText("Next Appointments: " + "\n")
       aptms2.foreach(a => {
         appointments_text.appendText("Date: " + Calendar.toString(a._2) + " - " + "Patient name: " + a._1._1 + " - " + " Birthdate: " + Calendar.toString(a._1._2))
-        appointments_text.appendText("\n")
+        appointments_text.appendText("\n\n")
       })
     }
     if (!apts.nonEmpty && !aptms2.nonEmpty) appointments_text.setText("No Appointments Scheduled for you... " + "\n")

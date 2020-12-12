@@ -67,7 +67,11 @@ class HistoryController extends Initializable {
           text_area.appendText("Prescription: " + "\n")
           text_area.appendText("Date: " + Calendar.toString(p._3) + "\n")
           text_area.appendText("Practitioner: " + p._2._1 + "\n")
-          text_area.appendText("Bill: " + p._5.get + "\n")
+          val tmp = p._5
+          tmp match {
+            case None => text_area.appendText("Bill: " + "no cost associated \n")
+            case _ => text_area.appendText("Bill: " + p._5.get + "\n")
+          }
           text_area.appendText("Description: " + p._4 + "\n")
           text_area.appendText("Medical Facility: " + FxApp.mf1.nome + "\n \n")
         }
