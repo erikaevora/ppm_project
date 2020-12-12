@@ -12,7 +12,6 @@ class AllExamsTodayDoc extends Initializable {
   private val mf1 = FxApp.mf1
   private val mf2 = FxApp.mf2
   private val usr = FxApp.user
-//  private val today = Calendar.getCurrentTime()
 
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {

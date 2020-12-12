@@ -29,6 +29,6 @@ class AllAppointmentsDoc extends Initializable {
         appointments_text.appendText("\n")
       })
     }
-    if (!apts.nonEmpty && !aptms2.nonEmpty) appointments_text.setText("No Exams Scheduled for you... " + "\n")
+    if (!apts.nonEmpty && !aptms2.nonEmpty) appointments_text.setText("No Appointments Scheduled for you... " + "\n")
   }
 }

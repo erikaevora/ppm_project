@@ -2,18 +2,18 @@ import java.net.URL
 import java.util.ResourceBundle
 
 import AppointmentList.Appointment
-import Calendar.toString
-import PersonList.Person
-import javafx.fxml.{FXML, FXMLLoader, Initializable}
-import javafx.scene.Parent
+import javafx.fxml.{FXML, Initializable}
 import javafx.scene.control.{Button, ChoiceBox, ComboBox, DatePicker, Label, TextField}
 
-import scala.util.{Failure, Success, Try}
+import scala.collection.mutable
 
 class ChangeAppCancelController extends Initializable{
 
+//  @FXML
+//  private var app_date_box: ComboBox[Appointment] = _
+
   @FXML
-  private var app_date_box: ComboBox[Appointment] = _
+  private var app_date_box: ComboBox[String] = _
 
   @FXML
   private var new_date_picker: DatePicker = _
@@ -47,6 +47,8 @@ class ChangeAppCancelController extends Initializable{
   private val x1 = FxApp.mf1.patl.searchPerson(FxApp.user._3)
   private val x2 = FxApp.mf2.patl.searchPerson(FxApp.user._3)
 
+  var mapa = new mutable.HashMap[String, Appointment]()
+
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
 
     minute_box.getItems.addAll(0, 30)
@@ -54,19 +56,25 @@ class ChangeAppCancelController extends Initializable{
     if(x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
       val wtl = FxApp.mf1.wtl
       wtl.appointments.foreach(a => {
-        if(a._1 == x1.get) {
-          app_date_box.getItems.add(a /*Calendar.toString(e._4)*/)
+        if(a._1._3 == x1.get._3) {
+          mapa.addOne(appointmentToString(a), a)
+          app_date_box.getItems.add(appointmentToString(a) /*Calendar.toString(e._4)*/)
         }
       })
 
     } else {
       val wtl = FxApp.mf2.wtl
       wtl.appointments.foreach(a => {
-        if(a._1 == x2.get) {
-          app_date_box.getItems.add(a /*Calendar.toString(e._4)*/)
+        if(a._1._3 == x2.get._3) {
+          mapa.addOne(appointmentToString(a), a)
+          app_date_box.getItems.add(appointmentToString(a) /*Calendar.toString(e._4)*/)
         }
       })
     }
+  }
+
+  def appointmentToString(ap: Appointment): String = {
+    "Date: " + Calendar.toString(ap._2) + " - Specialty: " + ap._3._5.get + " - Practitioner: " + ap._3._1
   }
 
   def onDatePicked: Unit = {
@@ -101,14 +109,13 @@ class ChangeAppCancelController extends Initializable{
         return
       }
       if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
-
-        if (!FxApp.mf1.wtl.availableSlot(dateHour, a._3)) {
+        if (!FxApp.mf1.wtl.availableSlot(dateHour, mapa.get(a).get._3)) {
           error_label.setText("The date and time you chose are unavailable.")
           error_label.setVisible(true)
           error_label.setMinWidth(250)
         }
         else {
-          val new_mf = FxApp.mf1.changeAppointmentDateWL(a, dateHour)
+          val new_mf = FxApp.mf1.changeAppointmentDateWL(mapa.get(a).get, dateHour)
           new_mf match {
             case None => {
               error_label.setText("Something went wrong.")
@@ -125,13 +132,13 @@ class ChangeAppCancelController extends Initializable{
 
       } else {
 
-        if (!FxApp.mf2.wtl.availableSlot(dateHour, a._3)) {
+        if (!FxApp.mf2.wtl.availableSlot(dateHour, mapa.get(a).get._3)) {
           error_label.setText("The date and time you chose are unavailable.")
           error_label.setVisible(true)
           error_label.setMinWidth(250)
         }
         else {
-          val new_mf = FxApp.mf2.changeAppointmentDateWL(a, dateHour)
+          val new_mf = FxApp.mf2.changeAppointmentDateWL(mapa.get(a).get, dateHour)
           new_mf match {
             case None => {
               error_label.setText("Something went wrong.")
@@ -160,13 +167,13 @@ class ChangeAppCancelController extends Initializable{
 
     if (a != null) {
       if (x1.isDefined && FxApp.mf1.patl.people.contains(FxApp.user)) {
-        val new_mf = FxApp.mf1.deleteAppointmentWL(a)
+        val new_mf = FxApp.mf1.deleteAppointmentWL(mapa.get(a).get)
         FxApp.mf1 = new_mf.get
         success_label.setText("Your appointment was successfully canceled.")
         success_label.setVisible(true)
 
       } else {
-        val new_mf = FxApp.mf2.deleteAppointmentWL(a)
+        val new_mf = FxApp.mf2.deleteAppointmentWL(mapa.get(a).get)
         FxApp.mf2 = new_mf.get
         success_label.setText("Your appointment was successfully canceled.")
         success_label.setVisible(true)

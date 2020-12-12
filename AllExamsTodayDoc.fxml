@@ -11,7 +11,7 @@
     <center>
         <AnchorPane accessibleRole="LIST_VIEW" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="368.0" prefWidth="429.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="26.0" layoutY="14.0" text="Your next exams:" />
+                <Label layoutX="26.0" layoutY="14.0" text="Your exam for todays:" />
                 <TextArea fx:id="exams_text" editable="false" layoutX="9.0" layoutY="41.0" prefHeight="197.0" prefWidth="477.0" />
             </children>
             <cursor>

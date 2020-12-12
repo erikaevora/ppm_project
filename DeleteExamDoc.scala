@@ -108,7 +108,12 @@ class DeleteExamDoc extends Initializable {
     val cli = arg._3
 
     val tmp = FxApp.mf1.findExamFEL(doc, cli, dt)
+    val tmp2 = FxApp.mf2.findExamFEL(doc, cli, dt)
     tmp match {
+      case None => ex = ex
+      case _ => ex = tmp.get
+    }
+    tmp2 match {
       case None => ex = ex
       case _ => ex = tmp.get
     }

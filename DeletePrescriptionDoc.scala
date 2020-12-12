@@ -7,6 +7,8 @@ import javafx.fxml.{FXML, FXMLLoader, Initializable}
 import javafx.scene.Parent
 import javafx.scene.control._
 
+import scala.collection.mutable
+
 class DeletePrescriptionDoc extends Initializable {
 
   @FXML
@@ -36,8 +38,11 @@ class DeletePrescriptionDoc extends Initializable {
   @FXML
   private var cancel_button: Button = _
 
+//  @FXML
+//  private var combo_box: ComboBox[Prescription] = _
+
   @FXML
-  private var combo_box: ComboBox[Prescription] = _
+  private var combo_box: ComboBox[String] = _
 
   @FXML
   private var check_box: CheckBox = _
@@ -45,13 +50,20 @@ class DeletePrescriptionDoc extends Initializable {
   private var cli: Person = FxApp.user
   private var presc: Prescription = (cli, FxApp.user, Calendar.getCurrentTime(), "", None, false)
 
+  var mapa = new mutable.HashMap[String, Prescription]()
+
+  def examToString(prs: Prescription): String = {
+    "Client: " + prs._1._1 + " - DateTime: " + Calendar.toString(prs._3) + " - Description: " + prs._4
+  }
 
   override def initialize(location: URL, resources: ResourceBundle): Unit = {
     FxApp.mf1.getDoctorPrescription(FxApp.user).foreach(a => {
-      combo_box.getItems().add(a)
+      mapa.addOne(examToString(a), a)
+      combo_box.getItems().add(examToString(a))
     })
     FxApp.mf2.getDoctorPrescription(FxApp.user).foreach(a => {
-      combo_box.getItems().add(a)
+      mapa.addOne(examToString(a), a)
+      combo_box.getItems().add(examToString(a))
     })
   }
 
@@ -105,7 +117,7 @@ class DeletePrescriptionDoc extends Initializable {
   }
 
   def onComboAction: Unit = {
-    presc = combo_box.getValue
+    presc = mapa.get(combo_box.getValue).get
     check_box.setVisible(true)
   }
 

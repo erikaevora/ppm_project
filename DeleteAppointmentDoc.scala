@@ -112,7 +112,12 @@ class DeleteAppointmentDoc extends Initializable {
     val dt = stringToCal(prts._3)
 
     val tmp = FxApp.mf1.findAppointmentCombo(cli, doc, dt)
+    val tmp2 = FxApp.mf2.findAppointmentCombo(cli, doc, dt)
     tmp match {
+      case None => ex
+      case _ => ex = tmp.get
+    }
+    tmp2 match {
       case None => ex
       case _ => ex = tmp.get
     }
