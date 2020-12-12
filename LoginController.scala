@@ -39,13 +39,13 @@ class LoginController {
 
       login_button.getScene().setRoot(mainViewRoot)
     }
-    val p1 = FxApp.mf1.patl.searchPerson(nif.getText)
-    val p2 = FxApp.mf2.patl.searchPerson(nif.getText)
+    val p1 = FxApp.mf1.searchPersonNIFClient(nif.getText)
+    val p2 = FxApp.mf2.searchPersonNIFClient(nif.getText)
 
-    val d1 = FxApp.mf1.docl.searchPerson(nif.getText)
-    val d2 = FxApp.mf2.docl.searchPerson(nif.getText)
+    val d1 = FxApp.mf1.searchPersonNIFDoctor(nif.getText)
+    val d2 = FxApp.mf2.searchPersonNIFDoctor(nif.getText)
 
-    if ((p1.nonEmpty && p1.get._7 == password.getText) || (p2.nonEmpty && p2.get._7 == password.getText)){
+    if ( (p1.nonEmpty && p1.get._7 == password.getText) || (p2.nonEmpty && p2.get._7 == password.getText) ){
 
       if(p1.nonEmpty && p1.get._7 == password.getText) FxApp.user = p1.get
       else FxApp.user = p2.get

@@ -73,7 +73,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="error_label" contentDisplay="CENTER" layoutX="88.0" layoutY="529.0" prefHeight="17.0" prefWidth="282.0" textFill="#ee0808" />
+            <Label fx:id="error_label" alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="529.0" prefHeight="17.0" prefWidth="327.0" textFill="#ee0808" />
             </children>
         </AnchorPane>
    </center>

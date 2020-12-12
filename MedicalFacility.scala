@@ -20,11 +20,11 @@ case class MedicalFacility(nome: String, wtl: WaitingList, pal: PastAppointments
   def getAllPaidReceipts(): Receipts = MedicalFacility.getAllPaidReceipts(this)
   def getTotalDebt(): Float = MedicalFacility.getTotalDebt(this)
 
-  def searchPerson(name: String): Option[Person] = MedicalFacility.searchPerson(this, name)
+//  def searchPerson(name: String): Option[Person] = MedicalFacility.searchPerson(this, name)
   def addPerson(p: Person): Option[MedicalFacility] = MedicalFacility.addPerson(this, p)
   def deletePerson(p: Person): MedicalFacility = MedicalFacility.deletePerson(this, p)
   def changePhoneNr(p: Person, n: String): Option[MedicalFacility] = MedicalFacility.changePersonPhoneNr(this, p, n)
-  def searchPersonNIF(nif: NIF): Option[Person] = MedicalFacility.searchPersonNIF(this, nif)
+  def searchPersonNIFDoctor(nif: NIF): Option[Person] = MedicalFacility.searchPersonNIFDoctor(this, nif)
   def searchPersonNIFClient(nif: NIF): Option[Person] = MedicalFacility.searchPersonNIFClient(this, nif)
   def containsPersonClient(p: Person): Boolean = MedicalFacility.containsPersonClient(this, p)
   def containsPersonDoctor(p: Person): Boolean = MedicalFacility.containsPersonDoctor(this, p)
@@ -112,10 +112,10 @@ case class MedicalFacility(nome: String, wtl: WaitingList, pal: PastAppointments
     def getTotalDebt(mf: MedicalFacility): Float = ReceiptList.getTotalDebt(mf.getAllReceipts())
 
     // ----------------------------------------- PersonList --------------------------------------------
-    def searchPerson(mf: MedicalFacility, name: String): Option[Person] = {
-      mf.docl.searchPerson(name)
-    }
-    def searchPersonNIF(mf: MedicalFacility, nif: NIF): Option[Person] = mf.docl.searchPersonNIF(nif)
+//    def searchPerson(mf: MedicalFacility, name: String): Option[Person] = {
+//      mf.docl.searchPerson(name)
+//    }
+    def searchPersonNIFDoctor(mf: MedicalFacility, nif: NIF): Option[Person] = mf.docl.searchPersonNIF(nif)
     def searchPersonNIFClient(mf: MedicalFacility, nif: NIF): Option[Person] = mf.patl.searchPersonNIF(nif)
 
     def addPerson(mf: MedicalFacility, per: Person): Option[MedicalFacility] = {
